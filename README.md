@@ -10,6 +10,8 @@ Capture the creditenials
 Port foward the phishing page
 ## Goal 4
 Send the captured creditenials via email
+## Wrap Up
+Put all this together in a python script
 ## Contributing
 If you want to contribute to this project, message me
 Instagram: [inc0gnit0.offical](https://instagram.com/inc0gnit0.offical)
