@@ -1,5 +1,6 @@
 # BlackPhish
 Phishing tool that is free and for everyone
+What you see right now is all unfinished work
 ## Goal 1
 Create the phishing page
 ## Goal 2
