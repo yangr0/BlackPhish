@@ -6,11 +6,11 @@ Create the phishing page
 ## Goal 2
 Host the phishing page
 ## Goal 3
-Capture the creditenials
+Capture the credentials
 ## Goal 3
 Port foward the phishing page
 ## Goal 4
-Send the captured creditenials via email
+Send the captured credentials via email
 ## Wrap Up
 Put all this together in a python script
 ## Contributing
