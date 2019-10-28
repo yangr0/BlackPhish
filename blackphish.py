@@ -26,4 +26,3 @@ try: # This will start the script
 except KeyboardInterrupt(): # Will detect if they exit #
 	print("Exiting")
 	exit(0)
-
