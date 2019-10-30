@@ -9,7 +9,7 @@ try:
 	#subproccess
 
 except ImportError():
-	print("\033[31;1m" + "[-] Error importing")
+	print("\033[31;1m" + "[!] Error importing")
 	exit(1)
 
  # Variables #
