@@ -9,7 +9,7 @@ try:
 	#subproccess
 
 except ImportError():
-	print("\033[31;1m" + "[!] Error importing")
+	print("\033[31;1m" + "[-] Error importing")
 	exit(1)
 
  # Variables #
@@ -44,7 +44,6 @@ def serveo_forward(): # Port forward to serveo#
 	#subprocess.Popen(["rm","-r","some.file"])
 
 def main():  # Main script #
-	
 
 	choice = input("[BlackPhish] -> ") # Get user input #
 
