@@ -74,7 +74,7 @@ def main():  # Main script #
 
 
 try: # This will start the script
-	if __name__ == '__main__':
+	if __name__ == '__main__':  
 		main()
 
 except KeyboardInterrupt: # Will detect if they exit #
