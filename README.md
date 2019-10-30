@@ -14,6 +14,8 @@ Might add encryption along with account validation.
 Port foward the phishing page
 ## Goal 4
 Possibly send the credentials to your email after x amount of accounts.
+## Goal 5
+Check for 2fa, also make a timer to continually check if the account is valid or not and give it a tag based on its status.
 ## Wrap Up
 Put all this together in a python script.
 ## Contributing
