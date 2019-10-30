@@ -44,7 +44,7 @@ def serveo_forward(): # Port forward to serveo#
 	#subprocess.Popen(["rm","-r","some.file"])
 
 def main():  # Main script #
-	platform()
+	
 
 	choice = input("[BlackPhish] -> ") # Get user input #
 
