@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 1.5: - Check for root - Added color - Changed icons
+# version 1.8: - Updated bash commad - added bash execution func - added clean function
 
 # Please update version number each time we update
 
@@ -59,19 +59,27 @@ def main():  # Main script #
         print(green + '[+] Done')
         main()
 
-    elif choice == "clean":
-        os.system('service apache2 stop')
+    elif choice == "help":
+        print('')
 
     elif choice == "clear":
         os.system('clear')
         main()
+    elif choice == "clean":
+        print(green + '[+] Stopping Apache2 Service')
+        os.system('service apache2 stop')
+        print(green + '[+] Stopping Traffic forwarding to serveo')
+        os.system('pkill -f inc0gnit0:80:localhost:80')
+        print(green + '[+] Cleaning /var/www/html/')
+        os.system('rm -r /var/www/html/ && mkdir /var/www/html')
+        print(green + '[+] Done')
+        main()
+
+    
     elif choice != "":
         os.system(""+choice)
         main()
     
-
-    #elif choice == "help":
-        #print('')
 
     else:
         print(red + "[!] Invalid option" + reset)
