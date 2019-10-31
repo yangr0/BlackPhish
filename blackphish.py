@@ -54,7 +54,6 @@ def main():  # Main script #
 		serveo_forward()
 		print(green + '[+] Forwarding Traffic to \"https://inc0gnit0.serveo.net/\"')
 		print(green + '[+] Done')
-		#os.system('clear')
 		main()
 
 	elif choice == "clean":
