@@ -78,7 +78,7 @@ def banner():
                 
                     Banner made by: [tuf_unkn0wn]
                     
-                    Script created by: [inc0gnit0] [retro0001]
+                    Script created by: [inc0gnit0] [retro]
                     
                     Websites created by: [TableFlipGod] 
                     
