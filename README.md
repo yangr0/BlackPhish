@@ -1,14 +1,18 @@
 # BlackPhish
 BlackPhish is a phishing that is free and for everyone to use
+
 What you see right now is all unfinished work
 ## Goal 1
 - [ ] Create the phishing page (Partly done)
+
 - [ ] Create a local hosted viewer to show all the accounts exported by the main website.
 ## Goal 2
 - [x] Host the phishing page
+
 - [ ] Maybe add a configuration to link with MongoDB for your own viewer.
 ## Goal 3
 - [ ] Capture the credentials
+
 - [ ] Might add encryption along with account validation.
 ## Goal 3
 - [x] Port foward the phishing page
