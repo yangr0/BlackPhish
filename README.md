@@ -5,13 +5,13 @@ What you see right now is all unfinished work
 Create the phishing page
 Create a local hosted viewer to show all the accounts exported by the main website.
 ## Goal 2
-Host the phishing page
+[x]Host the phishing page
 Maybe add a configuration to link with MongoDB for your own viewer.
 ## Goal 3
 Capture the credentials
 Might add encryption along with account validation.
 ## Goal 3
-Port foward the phishing page
+[x]Port foward the phishing page
 ## Goal 4
 Possibly send the credentials to your email after x amount of accounts.
 ## Goal 5
