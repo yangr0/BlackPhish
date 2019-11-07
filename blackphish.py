@@ -7,7 +7,7 @@
 try:
     import os
 
-except ImportError():
+except ImportError:
     print("\033[31;1m" + "[!] Error importing")
     exit(1)
 
