@@ -9,7 +9,7 @@ What you see right now is all unfinished work
 ## Goal 2
 - [x] Host the phishing page
 
-- [ ] Maybe add a configuration to link with MongoDB for your own viewer.
+- [ ]~~Maybe add a configuration to link with MongoDB for your own viewer.~~
 ## Goal 3
 - [ ] Capture the credentials
 
