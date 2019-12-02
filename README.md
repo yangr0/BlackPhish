@@ -33,3 +33,5 @@ Project Leader: [inc0gnit0](https://github.com/iinc0gnit0)
 Websites by: [TableFlipGod](https://instagram.com/tableflipgod_yt) and [DarkSecDevelopers](https://github.com/DarkSecDevelopers)
 
 Script by: [inc0gnit0](https://github.com/iinc0gnit0) and [retro0001](https://github.com/retro0001)
+
+Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for letting us use part of their tool
