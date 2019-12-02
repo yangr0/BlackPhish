@@ -2,7 +2,7 @@
 
 BlackPhish is a phishing that is free and for everyone to use
 
-What you see right now is all unfinished work
+This is still in BETA so you may see problems, please report them to use if you see any
 
 # Installation
 
