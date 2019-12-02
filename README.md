@@ -35,3 +35,9 @@ Websites by: [TableFlipGod](https://instagram.com/tableflipgod_yt) and [DarkSecD
 Script by: [inc0gnit0](https://github.com/iinc0gnit0) and [retro0001](https://github.com/retro0001)
 
 Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for letting us use part of their tool
+
+# Contribution
+
+Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or inc0gnit0@pm.me if you want to contribute
+
+Pull request are welcome
