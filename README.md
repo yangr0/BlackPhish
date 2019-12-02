@@ -2,7 +2,11 @@
 
 BlackPhish is a phishing that is free and for everyone to use
 
-This is still in BETA so you may see problems, please report them to use if you see any
+# BETA
+
+This is still in BETA so you may see problems, please report them to use if you see any problems
+
+Only the Google site working right now, Instagram site will be done soon
 
 # Installation
 
