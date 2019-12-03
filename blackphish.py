@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# version 3: - Finshed
+# version 1: - release
 
 # Please update version number each time we update
 
