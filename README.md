@@ -28,6 +28,8 @@ Run the Installation File
 
 `sudo python3 blackphish.py`
 
+You may change the redirect site in login.php
+
 # Credit
 
 Project Leader: [inc0gnit0](https://github.com/iinc0gnit0)
