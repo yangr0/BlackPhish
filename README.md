@@ -2,6 +2,8 @@
 
 BlackPhish is a phishing that is free and for everyone to use
 
+https://iinc0gnit0.github.io/BlackPhish/
+
 # in BETA
 
 This is still in BETA so you may see problems, please report them to use if you see any problems
