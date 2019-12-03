@@ -6,6 +6,24 @@ BlackPhish is a phishing that is free and for everyone to use
 
 This is still in BETA so you may see problems, please report them to use if you see any problems
 
+# Compatibility
+
+These are the only systems I've tested on
+
+- Ubuntu
+
+- Kali Linux
+
+# Requirements
+
+- Compatitble System
+
+- Python3
+
+- PHP
+
+- Apache2
+
 # Installation
 
 This will clone the repository
