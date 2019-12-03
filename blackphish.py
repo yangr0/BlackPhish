@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+# You may change the code however you want
+
+# Please create pull request to support the tool
+
+# Please message us if you find any problems or ideas
+
 # version 1: - release
 
 # Please update version number each time we update
