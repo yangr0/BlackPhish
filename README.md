@@ -6,7 +6,7 @@ BlackPhish is a phishing that is free and for everyone to use
 
 [BlackPhish on Github](https://github.com/iinc0gnit0/BlackPhish)
 
-# in BETA
+# in BETA./ngrok http 80
 
 This is still in BETA so you may see problems, please report them to use if you see any problems
 
@@ -31,6 +31,7 @@ These are the only systems I've tested on
 # Installation
 
 This will install Git
+
 `sudo apt-get install git`
 
 This will clone the repository
