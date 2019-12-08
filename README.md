@@ -30,6 +30,9 @@ These are the only systems I've tested on
 
 # Installation
 
+This will install Git
+`sudo apt-get install git`
+
 This will clone the repository
 
 `git clone https://github.com/iinc0gnit0/BlackPhish`
