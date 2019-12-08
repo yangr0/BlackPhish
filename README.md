@@ -71,3 +71,11 @@ Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for lett
 Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or inc0gnit0@pm.me if you want to contribute
 
 Pull request are welcome
+
+# Updates
+
+## 1.3
+
+- Added Localtunnel
+
+- Fixed small bugs
