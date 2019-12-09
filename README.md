@@ -1,6 +1,6 @@
 # BlackPhish
 
-BlackPhish is a phishing that is free and for everyone to use
+BlackPhish is a phishing that is free and for everyone to use(and doesn't really suck)
 
 [BlackPhish](https://iinc0gnit0.github.io/BlackPhish/)
 
