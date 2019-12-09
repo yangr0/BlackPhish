@@ -1,6 +1,6 @@
 # BlackPhish
 
-BlackPhish is a phishing that is free and for everyone to use (and doesn't suck)
+BlackPhish is a phishing tool that is free and for everyone to use (and doesn't suck)
 
 [BlackPhish](https://iinc0gnit0.github.io/BlackPhish/)
 
@@ -17,6 +17,8 @@ These are the only systems I've tested on
 - Ubuntu
 
 - Kali Linux
+
+- Termux (Looking for someone to make it)
 
 # Requirements
 
