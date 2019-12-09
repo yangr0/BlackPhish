@@ -76,6 +76,10 @@ Pull request are welcome
 
 # Updates
 
+## 1.4
+
+- Commented all code in blackphish.py
+
 ## 1.3
 
 - Added Localtunnel
