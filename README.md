@@ -76,6 +76,10 @@ Pull request are welcome
 
 # Updates
 
+## 1.5
+
+- Added localhost.run
+
 ## 1.4
 
 - Commented all code in blackphish.py
