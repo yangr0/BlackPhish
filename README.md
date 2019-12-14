@@ -76,6 +76,12 @@ Pull request are welcome
 
 # Updates
 
+## 1.6
+
+- Added localhost only
+
+- Some touch ups
+
 ## 1.5
 
 - Added localhost.run
