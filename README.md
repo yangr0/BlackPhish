@@ -22,7 +22,7 @@ These are the only systems I've tested on
 
 # Requirements
 
-- Compatitble System
+- Compatible System
 
 - Python3
 
