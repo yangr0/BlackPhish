@@ -76,6 +76,12 @@ Pull request are welcome
 
 # Updates
 
+## 1.8
+
+- Added Facebook page
+
+- Small fixes
+
 ## 1.7
 
 - Code touch ups 
