@@ -84,6 +84,8 @@ Pull request are welcome
 
 - Fixed exception bug
 
+- New banner
+
 - New login.php
 
 ## 1.8
