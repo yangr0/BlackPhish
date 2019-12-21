@@ -1,5 +1,7 @@
 # BlackPhish
 
+https://img.shields.io/badge/version-2.0-brightgreen?style=flat&logo=appveyor
+
 BlackPhish is a phishing tool that is free and for everyone to use (and doesn't suck)
 
 [BlackPhish](https://iinc0gnit0.github.io/BlackPhish/)
