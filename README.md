@@ -10,6 +10,8 @@ BlackPhish is a phishing tool that is free and for everyone to use (and doesn't 
 
 This is still in BETA so you may see problems, please report them to use if you see any problems
 
+Started October 31, 2019
+
 # Compatibility
 
 These are the only systems I've tested on
