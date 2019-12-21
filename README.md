@@ -78,6 +78,14 @@ Pull request are welcome
 
 # Updates
 
+## 2.0
+
+- Added redirect prompt
+
+- Fixed exception bug
+
+- New login.php
+
 ## 1.8
 
 - Added Facebook page
