@@ -18,7 +18,7 @@
   
   <img alt="GitHub" src="https://img.shields.io/github/license/iinc0gnit0/BlackPhish">
   
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/iinc0gnit0/BlackPhish">
+  <img src="https://img.shields.io/badge/language-python3-blue">
   
 </p>
 
