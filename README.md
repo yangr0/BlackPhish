@@ -2,6 +2,26 @@
 
 <p align="center"><img src="https://img.shields.io/badge/version-2.0-brightgreen?style=flat&logo=appveyor"</p>
 
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
+
+</p>
+  
+<p align="center">
+  
+  <img alt="GitHub followers" src="https://img.shields.io/github/followers/iinc0gnit0?style=social">
+  
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/iinc0gnit0/BlackPhish?style=social">
+  
+</p>
+
+<p align="center">
+  
+  <img alt="GitHub" src="https://img.shields.io/github/license/iinc0gnit0/BlackPhish">
+  
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/iinc0gnit0/BlackPhish">
+  
+</p>
+
 BlackPhish is a phishing tool that is free and for everyone to use (and doesn't suck)
 
 [BlackPhish](https://iinc0gnit0.github.io/BlackPhish/)
