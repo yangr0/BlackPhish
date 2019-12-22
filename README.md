@@ -1,4 +1,6 @@
-<p align="center"><img src="https://img.shields.io/badge/version-2.0-brightgreen?style=flat&logo=appveyor"</p>
+<p align="center">
+  
+  <img src="https://img.shields.io/badge/version-2.0-brightgreen">
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
 
