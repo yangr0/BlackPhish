@@ -1,5 +1,3 @@
-# BlackPhish
-
 <p align="center"><img src="https://img.shields.io/badge/version-2.0-brightgreen?style=flat&logo=appveyor"</p>
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
@@ -21,6 +19,8 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/iinc0gnit0/BlackPhish">
   
 </p>
+
+# BlackPhish
 
 BlackPhish is a phishing tool that is free and for everyone to use (and doesn't suck)
 
