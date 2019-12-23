@@ -10,7 +10,7 @@
 
 
 
-# version 2.0: - Added redirect prompt - Fixed exception bug - New banner
+# version 2.1: - Bug fix
 
 # Please update version number each time we update
 
@@ -23,8 +23,8 @@ try:
     from socket import create_connection, gethostname, gethostbyname
     from distutils.dir_util import copy_tree
 except ImportError:
-    print("\033[31;1m" + "[!] Import Error, Aborting! \033[0m")
-    print("\033[31;1m" + "[!] Please run: \"chmod +x install.sh && ./install.sh\"") # Command to run install.sh # 
+    print("\033[31;1m" + "[!] Import Error, Aborting!")
+    print("[!] Please run: \"chmod +x install.sh && ./install.sh\"\033[0m") # Command to run install.sh # 
     exit(1)
 
 
