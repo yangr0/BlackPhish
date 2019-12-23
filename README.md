@@ -1,4 +1,4 @@
-<img src="https://github.com/iinc0gnit0/BlackPhish/blob/master/img/BlackPhish.png" align="center"></img>
+<img src="https://github.com/iinc0gnit0/BlackPhish/blob/master/img/BlackPhish.png" align="right"></img>
 
 <h1 align="center">
   
