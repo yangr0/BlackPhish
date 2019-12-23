@@ -1,3 +1,21 @@
+<h1 align="center">
+  
+  BlackPhish
+
+</h1>
+
+<p align="center">
+  
+  <a href="https://iinc0gnit0.github.io/BlackPhish">BlackPhish</a>
+  
+</p>
+
+<p align="center">
+  
+  <a href="https://github.com/iinc0gnit0/BlackPhish">BlackPhish on GitHub</a>
+  
+</p>
+
 <p align="center">
   
   <img src="https://img.shields.io/badge/version-2.0-brightgreen">
@@ -21,14 +39,6 @@
   <img src="https://img.shields.io/badge/language-python3-blue">
   
 </p>
-
-# BlackPhish
-
-BlackPhish is a phishing tool that is free and for everyone to use (and doesn't suck)
-
-[BlackPhish](https://iinc0gnit0.github.io/BlackPhish/)
-
-[BlackPhish on Github](https://github.com/iinc0gnit0/BlackPhish)
 
 # in BETA
 
