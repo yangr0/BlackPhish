@@ -6,15 +6,7 @@
 
 <p align="center">
   
-  <a href="https://iinc0gnit0.github.io/BlackPhish">BlackPhish</a>
-  
-</p>
-
-<p align="center">
-  
-  <a href="https://github.com/iinc0gnit0/BlackPhish">BlackPhish on GitHub</a>
-  
-</p>
+  Easy to use phishing tool(that doesn't suck)
 
 <p align="center">
   
