@@ -4,11 +4,7 @@
 
 </h1>
 
-<p align="center">
-  
-  Easy to use phishing tool(that doesn't suck)
-  
-</p>
+<p align="center">Easy to use phishing tool(that doesn't suck)</p>
 
 <p align="center">
   
