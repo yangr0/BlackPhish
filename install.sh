@@ -1,5 +1,3 @@
-#!/usr/bin/bash
-
 sudo apt-get install python3
 sudo apt-get install ssh
 sudo apt-get install apache2
