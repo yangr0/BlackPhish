@@ -84,6 +84,10 @@ Run the Installation File
 
 You may change the redirect site in login.php
 
+# Update
+
+`./update.sh`
+
 # Credit
 
 Project Leader: [inc0gnit0](https://github.com/iinc0gnit0)
