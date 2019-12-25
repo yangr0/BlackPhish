@@ -110,6 +110,8 @@ Pull request are welcome
 
 - Bug fix
 
+- Added update function
+
 ## 2.0
 
 - Added redirect prompt
