@@ -1,5 +1,3 @@
-#!/usr/bin/bash
-
 sudo chmod +x *
 cd ..
 sudo rm -rf BlackPhish
