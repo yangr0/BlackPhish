@@ -72,7 +72,7 @@ Change into BlackPhish directory
 
 Change File Permissions
 
-`chmod +x install.sh`
+`chmod +x *`
 
 Run the Installation File
 
