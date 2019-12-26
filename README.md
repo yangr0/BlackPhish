@@ -6,6 +6,12 @@
 
 </h1>
 
+<p>
+  
+  Phishing Made Easy
+  
+</p>
+
 <p align="center">
   
   <img src="https://img.shields.io/badge/version-2.1-brightgreen">
