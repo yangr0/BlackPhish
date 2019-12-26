@@ -8,12 +8,6 @@
 
 <p align="center">
   
-  Phishing Made Easy
-  
-</p>
-
-<p align="center">
-  
   <img src="https://img.shields.io/badge/version-2.1-brightgreen">
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
