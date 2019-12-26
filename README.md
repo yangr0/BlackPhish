@@ -6,7 +6,7 @@
 
 </h1>
 
-<p>
+<p align="center">
   
   Phishing Made Easy
   
