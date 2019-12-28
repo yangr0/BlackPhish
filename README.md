@@ -106,6 +106,12 @@ Pull request are welcome
 
 # Updates
 
+## 2.2
+
+- Small adjustements
+
+- Fixed sometimes not catching username/password
+
 ## 2.1
 
 - Bug fix
