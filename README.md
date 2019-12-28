@@ -44,7 +44,7 @@ These are the only systems I've tested on
 
 - Kali Linux
 
-- Termux (Looking for someone to make it)
+- Termux (Looking for someone to make it)Bug fix
 
 # Requirements
 
@@ -108,7 +108,7 @@ Pull request are welcome
 
 ## 2.2
 
-- Small adjustements
+- Small adjustments
 
 - Fixed sometimes not catching username/password
 
