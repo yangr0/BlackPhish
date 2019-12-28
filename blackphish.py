@@ -70,7 +70,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.1
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.2
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -160,7 +160,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.1
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.2
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -186,8 +186,8 @@ def banner():
     
 def endMessage(): # Message when you exit #
     print("\n")
-    print(yellow + "  Thank you using BlackPhish\n")
-    print(yellow + "  If you have any problems while using BlackPhish please report it to us\n")
+    print(yellow + "  Thank you using " + red + "BlackPhish\n")
+    print(yellow + "  If you have any problems while using " + red + "BlackPhish " + yellow + "please report it to us\n")
     print(yellow + "  Make Pull Request to support this tool\n")
     print("\n" + reset)
     exit(0)
