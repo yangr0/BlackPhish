@@ -104,7 +104,7 @@ Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or Email: iinc0gnit
 
 Pull request are welcome
 
-# Updates
+# Update Log
 
 ## 2.2
 
