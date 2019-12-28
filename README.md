@@ -8,7 +8,7 @@
 
 <p align="center">
   
-  <img src="https://img.shields.io/badge/version-2.2-brightgreen">
+  <img src="https://img.shields.io/badge/version-2.3-brightgreen">
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
 
@@ -40,7 +40,7 @@ Started October 31, 2019
 
 These are the only systems I've tested on
 
-- Ubuntu
+- Ubuntu based systems
 
 - Kali Linux
 
@@ -105,6 +105,10 @@ Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or Email: iinc0gnit
 Pull request are welcome
 
 # Update Log
+
+## 2.3
+
+- Bug fixes
 
 ## 2.2
 
