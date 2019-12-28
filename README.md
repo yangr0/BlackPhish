@@ -44,7 +44,7 @@ These are the only systems I've tested on
 
 - Kali Linux
 
-- Termux (Looking for someone to make it)Bug fix
+- Termux (Looking for someone to make it)
 
 # Requirements
 
