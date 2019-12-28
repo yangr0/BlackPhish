@@ -10,7 +10,7 @@
 
 
 
-# version 2.1: - Bug fix
+# version 2.2: - Small adjustments
 
 # Please update version number each time we update
 
