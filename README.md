@@ -8,7 +8,7 @@
 
 <p align="center">
   
-  <img src="https://img.shields.io/badge/version-2.3-brightgreen">
+  <img src="https://img.shields.io/badge/version-2.4-brightgreen">
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
 
@@ -105,6 +105,12 @@ Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or Email: iinc0gnit
 Pull request are welcome
 
 # Update Log
+
+## 2.4
+
+- Small adjustments
+
+- Allow custom domain names
 
 ## 2.3
 
