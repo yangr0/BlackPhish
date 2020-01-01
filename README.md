@@ -106,6 +106,10 @@ Pull request are welcome
 
 # Update Log
 
+## 2.5
+
+- Check for python version
+
 ## 2.4
 
 - Small adjustments
