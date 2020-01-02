@@ -10,23 +10,19 @@
 
 
 
-# version 2.5: - Check for python version
+# version 2.6: - Bug fixes
 
 # Please update version number each time we update
 
 
 
 # Libraries #
-try:
-    from os import system, getcwd, geteuid
-    from time import sleep
-    from socket import create_connection, gethostname, gethostbyname
-    from distutils import dir_util
-    from sys import version_info
-except ImportError:
-    print("\033[31;1m" + "[!] Import Error, Aborting!")
-    print("[!] Please run: \"chmod +x install.sh && ./install.sh\"\033[0m") # Command to run install.sh # 
-    exit(1)
+from os import system, getcwd, geteuid
+from time import sleep
+from socket import create_connection, gethostname, gethostbyname
+from distutils import dir_util
+from sys import version_info
+
 
 
 
@@ -76,7 +72,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.5
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.6
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -168,7 +164,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.5
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.6
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
