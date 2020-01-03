@@ -18,13 +18,13 @@
   
   <img alt="GitHub followers" src="https://img.shields.io/github/followers/iinc0gnit0?style=social">
   
-  <img alt="GitHub stars" src="https://github.com/iinc0gnit0/BlackPhish">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/iinc0gnit0/BlackPhish?style=social">
   
 </p>
 
 <p align="center">
   
-  <img alt="GitHub" src="https://github.com/iinc0gnit0/BlackPhish">
+  <img alt="GitHub" src="https://img.shields.io/github/license/iinc0gnit0/BLackPhish">
   
   <img src="https://img.shields.io/badge/language-python3-blue">
   
