@@ -50,9 +50,7 @@ Started October 31, 2019
 
 These are the only systems I've tested on
 
-- Ubuntu based systems
-
-- Kali Linux
+- Any Debian/Ubuntu based OS
 
 - Termux (Looking for someone to make it)
 
