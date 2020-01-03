@@ -24,8 +24,6 @@ from time import sleep
 from socket import create_connection, gethostname, gethostbyname
 from distutils import dir_util
 from sys import version_info
-#from subprocess import as sp 
-
 
 
 
@@ -50,19 +48,16 @@ white = "\033[97;1m"
 blink = "\033[5m"
 
 
+
 # Check for python version #
 if version_info < (3,0,0):
     exit(red + "[!] Please use python3: sudo python3 blackphish.py" + reset)
-    
-    
-    
+
+
+
 # Check for root #
 if geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
-    
-    
-# Check dependencies #
-
 
 
 
