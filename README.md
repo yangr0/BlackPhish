@@ -94,6 +94,8 @@ You may change the redirect site in login.php
 
 # Update
 
+`chmod +x *`
+
 `./update.sh`
 
 # Credit
