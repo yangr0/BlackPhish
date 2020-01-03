@@ -1,3 +1,5 @@
+# coding: latin-1
+
 #!/usr/bin/python3
 
 
@@ -10,7 +12,7 @@
 
 
 
-# version 2.6: - Bug fixes
+# version 2.7: - Sometimes showing non-ascaii character error
 
 # Please update version number each time we update
 
@@ -22,6 +24,7 @@ from time import sleep
 from socket import create_connection, gethostname, gethostbyname
 from distutils import dir_util
 from sys import version_info
+#from subprocess import as sp 
 
 
 
@@ -56,6 +59,10 @@ if version_info < (3,0,0):
 # Check for root #
 if geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
+    
+    
+# Check dependencies #
+
 
 
 
@@ -72,7 +79,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.6
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.7
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -83,7 +90,7 @@ def warning(): # Banner #
                     
                     Big Thanks to: \033[91;1m [ DarkSecDevelopers ]\033[93;1m ''')
     print('\n')
-    warningchoice = input("                    Will you use this responsibly (\033[94;1my\033[93;1m/\033[91mn\033[93;1m?): ") # Agreement Message #
+    warningchoice = input("                    Will you use this responsibly (\033[94;1my\033[93;1m/\033[91mn\033[93;1m): ") # Agreement Message #
 
     if warningchoice == 'y':
         print("")
@@ -164,7 +171,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.6
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.7
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
