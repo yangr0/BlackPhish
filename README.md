@@ -122,6 +122,8 @@ Pull request are welcome
 
 - Improved installation
 
+- Improved update function
+
 ## 2.6
 
 - Bug fixes
