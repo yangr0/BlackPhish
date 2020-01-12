@@ -8,7 +8,7 @@
 
 <p align="center">
   
-  <img src="https://img.shields.io/badge/version-2.8-brightgreen">
+  <img src="https://img.shields.io/badge/version-3.0-brightgreen">
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
 
@@ -116,6 +116,12 @@ Pull request are welcome
 
 # Update Log
 
+## 3.0
+
+- Fixed installation
+
+- Added Netflix
+
 ## 2.8
 
 - Bug fixes
@@ -167,6 +173,8 @@ Pull request are welcome
 - New banner
 
 - New login.php
+
+- Added Google
 
 ## 1.8
 
