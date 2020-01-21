@@ -112,7 +112,7 @@ def serveoForward():
     port = input(yellow + "\nPort(recommend 80): ")
     print(yellow + '\n If prompt about RSA key, say yes' + green)
     sleep(2)
-    system('ssh -o ServerAliveInterval=60 -R ' + name + ':' + port + ':localhost:' + port + 'serveo.net')
+    system('ssh -o ServerAliveInterval=60 -R ' + name + ':' + port + ':localhost:' + port + ' serveo.net')
 
 
 
