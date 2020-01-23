@@ -12,7 +12,7 @@
 
 # Lasted updated: 1/21/20
 
-# version 3.0: - Fixed installation - Added Netflix
+# version 3.1: - Code Revisions - Added Twitter
 
 # Please update version number each time we update
 
