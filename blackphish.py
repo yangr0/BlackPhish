@@ -10,7 +10,7 @@
 
 
 
-# Lasted updated: 1/12/20
+# Lasted updated: 1/21/20
 
 # version 3.0: - Fixed installation - Added Netflix
 
