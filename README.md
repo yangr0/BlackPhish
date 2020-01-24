@@ -102,9 +102,9 @@ You may change the redirect site in login.php
 
 Project Leader: [inc0gnit0](https://github.com/iinc0gnit0)
 
-Websites by: [TableFlipGod](https://instagram.com/tableflipgod_yt) and [DarkSecDevelopers](https://github.com/DarkSecDevelopers)
+Websites by: [TableFlipGod](https://instagram.com/tableflipgod_yt) | [DarkSecDevelopers](https://github.com/DarkSecDevelopers)
 
-Script by: [inc0gnit0](https://github.com/iinc0gnit0) [retro0001](https://github.com/retro0001) [pythonier5001](https://instagram.com/jackoftimeandreality)
+Script by: [inc0gnit0](https://github.com/iinc0gnit0) | [retro0001](https://github.com/retro0001) | [pythonier5001](https://instagram.com/jackoftimeandreality)
 
 Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for letting us use part of their tool
 
