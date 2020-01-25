@@ -118,6 +118,8 @@ Pull request are welcome
 
 ## 3.1
 
+- New Logo
+
 - Code Revision
 
 - Added Twitter
