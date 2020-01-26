@@ -1,4 +1,5 @@
 sudo apt-get install python3
+sudo apt-get install npm
 sudo apt-get install ssh
 sudo apt-get install apache2
 sudo npm install -g localtunnel
