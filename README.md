@@ -118,6 +118,8 @@ Pull request are welcome
 
 ## 3.1
 
+- Fixed not allowing to install localtunnel
+
 - New Logo
 
 - Code Revision
