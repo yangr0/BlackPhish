@@ -82,8 +82,6 @@ Change into BlackPhish directory
 
 Run the Installation File
 
-`chmod +x install.sh`
-
 `./install.sh`
 
 # Usage
