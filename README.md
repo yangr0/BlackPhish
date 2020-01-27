@@ -109,3 +109,7 @@ Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for lett
 Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or Email: iinc0gnit0@pm.me if you want to contribute
 
 Pull request are welcome
+
+# Updates
+
+## [CHANGELOG.md](https://github.com/iinc0gnit0/BlackPhish/CHANGELOG.md)
