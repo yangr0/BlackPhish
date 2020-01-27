@@ -112,4 +112,4 @@ Pull request are welcome
 
 # Updates
 
-## [CHANGELOG.md](https://github.com/iinc0gnit0/BlackPhish/CHANGELOG.md)
+## [CHANGELOG.md](https://github.com/iinc0gnit0/BlackPhish/blob/master/CHANGELOG.md)
