@@ -48,11 +48,13 @@ Started October 31, 2019
 
 # Compatibility
 
-These are the only systems I've tested on
+- Ubuntu 18.04.1(Tested)
 
-- Any Debian/Ubuntu based OS
+- Kali Linux 2019.4(Tested)
 
-- Termux (Looking for someone to make it)
+- Any Debian/Ubuntu based OS(should work)
+
+- Termux (In progress)
 
 # Requirements
 
@@ -79,6 +81,8 @@ Change into BlackPhish directory
 `cd BlackPhish`
 
 Run the Installation File
+
+`chmod +x install.sh`
 
 `./install.sh`
 
