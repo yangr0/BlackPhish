@@ -66,6 +66,8 @@ Started October 31, 2019
 
 - Apache2
 
+- npm
+
 # Installation
 
 This will install Git
