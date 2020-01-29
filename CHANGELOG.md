@@ -1,4 +1,9 @@
 # Changelog for BlackPhish - https://github.com/iinc0gnit0/BlackPhish
+## 4.0
+
+- Replacing Serveo with ngrok
+
+- Code Revisions
 
 ## 3.2
 
