@@ -79,6 +79,8 @@ def warning(): # Banner #
 
     if warningchoice == 'y':
         print("")
+    elif warningchoice == "yes":
+	print("")
     else:
         endMessage()
 
