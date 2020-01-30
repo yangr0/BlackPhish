@@ -4,7 +4,7 @@
 # Please create pull request to support the tool
 # Please message us if you find any problems or ideas
 # Lasted updated: 1/26/20
-# version 3.3: - Bug fixes for ngrok
+# version 3.4: - Fixed issue checking for internet
 # Please update version number each time we update
 
 
@@ -62,7 +62,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.3
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.4
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -93,7 +93,7 @@ def warning(): # Banner #
 def checkInternet(): # Checks for internet connection #
     print(yellow + "[*] Checking connection...")
     try:
-        create_connection(("https://apple.com", 80)) # Tries to connect to google.com #
+        create_connection(("www.apple.com", 80)) # Tries to connect to google.com #
         print(green + "[+] Internet Found")
         sleep(2)
     except OSError: # Checks for OSError #
@@ -342,7 +342,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.3
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.4
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
