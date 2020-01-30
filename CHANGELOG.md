@@ -1,4 +1,9 @@
-# Changelog for BlackPhish - https://github.com/iinc0gnit0/BlackPhish
+# Changelog for [BlackPhish](https://github.com/iinc0gnit0/BlackPhish)
+
+## 3.4
+
+- Fixed issue checking for internet
+
 ## 3.3
 
 - Replacing Serveo with ngrok
