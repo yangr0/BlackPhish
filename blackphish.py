@@ -93,7 +93,7 @@ def warning(): # Banner #
 def checkInternet(): # Checks for internet connection #
     print(yellow + "[*] Checking connection...")
     try:
-        create_connection(("www.google.com", 80)) # Tries to connect to google.com #
+        create_connection(("https://apple.com", 80)) # Tries to connect to google.com #
         print(green + "[+] Internet Found")
         sleep(2)
     except OSError: # Checks for OSError #
