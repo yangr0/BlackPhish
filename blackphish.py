@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
-# You may change the code however you want
-# Please create pull request to support the tool
-# Please message us if you find any problems or ideas
-# Lasted updated: 1/26/20
-# version 3.4: - Fixed issue checking for internet
-# Please update version number each time we update
+
+
+'''
+You may change the code however you want
+Create pull requests to support the tool
+Create an issue if you find any problems or ideas
+Lasted Updated: 1/30/20
+Version 3.4: - Fixed issue checking for internet - Code revision
+Please update version number and date each time we update
+'''
 
 
 # Libraries #
@@ -20,9 +24,7 @@ from sys import version_info
 # Variables #
 cwd = getcwd() # Gets working directory #
 
-hostname = gethostname() # Get hostname #
-
-localip = gethostbyname(hostname) # Get local IP by hostname #
+localip = gethostbyname(gethostname()) # Get local IP #
 
 
 
