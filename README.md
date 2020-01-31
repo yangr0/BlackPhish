@@ -48,9 +48,9 @@ Started October 31, 2019
 
 # Compatibility
 
-- Ubuntu 18.04.1(Tested)
+- Ubuntu 18.04.1 (Tested)
 
-- Kali Linux 2019.4(Tested)
+- Kali Linux 2019.4 (Tested)
 
 - Any Debian/Ubuntu based OS(should work)
 
