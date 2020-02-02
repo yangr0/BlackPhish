@@ -30,6 +30,14 @@
 
 </p>
 
+<p align="center">
+  
+  <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/iinc0gnit0/BlackPhish">
+  
+  <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/iinc0gnit0/BlackPhish">
+  
+</p>
+
 # Fast and Lightweight
 
 Super lightweight with many features and blazing fast speeds.
