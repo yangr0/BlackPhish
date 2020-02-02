@@ -1,5 +1,9 @@
 # Changelog for [BlackPhish](https://github.com/iinc0gnit0/BlackPhish)
 
+## 3.5
+
+- Added Snapchat
+
 ## 3.4
 
 - Fixed issue checking for internet
