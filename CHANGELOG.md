@@ -2,6 +2,8 @@
 
 ## 3.5
 
+- ngrok download added to installation
+
 - Added Snapchat
 
 ## 3.4
