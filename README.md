@@ -38,6 +38,12 @@
   
 </p>
 
+<p align="center">
+  
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/iinc0gnit0/BlackPhish">
+  
+</p>
+
 # Fast and Lightweight
 
 Super lightweight with many features and blazing fast speeds.
