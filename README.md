@@ -50,8 +50,8 @@ Super lightweight with many features and blazing fast speeds.
 
 <p>
 
-  <img src="https://img.shields.io/github/repo-size/iinc0gnit0/BlackPhish">
-
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/iinc0gnit0/BlackPhish">
+  
 </p>
 
 # in BETA
