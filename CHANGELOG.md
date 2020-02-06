@@ -1,5 +1,10 @@
 # Changelog for [BlackPhish](https://github.com/iinc0gnit0/BlackPhish)
 
+
+## 3.6
+
+- Small fixes
+
 ## 3.5
 
 - ngrok download added to installation
