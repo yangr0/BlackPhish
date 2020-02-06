@@ -401,17 +401,13 @@ def main():
 
 
 
-    # Host Instagram Page #
+    # Instagram #
     if choice == "1":
         setup("Instagram")
-
-
 
     # Google #
     elif choice == '2':
         setup("Google")
-
-
 
     # Facebook #
     elif choice == '3':
