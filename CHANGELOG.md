@@ -1,5 +1,8 @@
 # Changelog for [BlackPhish](https://github.com/iinc0gnit0/BlackPhish)
 
+## 3.7
+
+- More commented code
 
 ## 3.6
 
