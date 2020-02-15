@@ -8,7 +8,7 @@
 
 <p align="center">
 
-  <img src="https://img.shields.io/badge/version-3.6-brightgreen">
+  <img src="https://img.shields.io/badge/version-3.7-brightgreen">
 
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
 
