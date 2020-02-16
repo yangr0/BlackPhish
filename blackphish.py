@@ -6,8 +6,8 @@
 ## You may change the code however you want                    ##
 ## Create pull requests to support the tool                    ##
 ## Create an issue if you find any problems or ideas           ##
-## Lasted Updated: 2/15/20                                     ##
-## Version 3.7: - More commented code                          ##
+## Lasted Updated: 2/16/20                                     ##
+## Version 3.8: - Fixed Snapchat                               ##
 ## Please update version number and date each time we update   ##
 #################################################################
 
