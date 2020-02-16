@@ -1,5 +1,9 @@
 # Changelog for [BlackPhish](https://github.com/iinc0gnit0/BlackPhish)
 
+## 3.8
+
+- Fixed Snapchat
+
 ## 3.7
 
 - More commented code
