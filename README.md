@@ -86,27 +86,39 @@ Started October 31, 2019
 
 This will install Git
 
-`sudo apt-get install git`
+```bash
+sudo apt-get install git
+```
 
 This will clone the repository
 
-`git clone https://github.com/iinc0gnit0/BlackPhish`
+```bash
+git clone https://github.com/iinc0gnit0/BlackPhish
+```
 
 Change into BlackPhish directory
 
-`cd BlackPhish`
+```bash
+cd BlackPhish
+```
 
 Run the Installation File
 
-`./install.sh`
+```bash
+./install.sh
+```
 
 # Usage
 
-`sudo python3 blackphish.py`
+```bash
+sudo python3 blackphish.py
+```
 
 # Update
 
-`./update.sh`
+```bash
+./update.sh
+```
 
 # Credit
 
