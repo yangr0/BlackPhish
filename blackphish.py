@@ -290,7 +290,7 @@ def ngrokForward():
 # Port forward with Localtunnel #
 def localTunnel():
     name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
-    port = input(yellow + "\nPort[recommended 80]: ")
+    port = input(yellow + "\nPort[recommended 4200]: ")
     print(yellow + '\n If prompt about RSA key, say yes' + green)
     sleep(2)
     system('lt -p ' + port + ' -s ' + name + ' --allow-invalid-cert --print-requests')
@@ -301,7 +301,7 @@ def localTunnel():
 def localhost():
     print(yellow + ' If prompt about RSA key, say yes' + green)
     sleep(2)
-    system('ssh -R 80:localhost:80 ssh.localhost.run')
+    system('ssh -R 80:localhost:4200 ssh.localhost.run')
 
 
 
