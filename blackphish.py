@@ -280,7 +280,7 @@ def setup(template): # Template for input #
 def ngrokForward():
     sleep(2)
     try:
-        system(f"cd {cwd} && ./ngrok http 80")
+        system(f"cd {cwd} && ./ngrok http 8080")
     except:
         print(red + "\n[!] Something went wrong! Please try again")
         endMessage()
@@ -290,7 +290,7 @@ def ngrokForward():
 # Port forward with Localtunnel #
 def localTunnel():
     name = input(yellow + "\nCustom Domain Name(don't need www. or domain extension): ")
-    port = input(yellow + "\nPort[recommended 80]: ")
+    port = input(yellow + "\nPort[recommended 8080]: ")
     print(yellow + '\n If prompt about RSA key, say yes' + green)
     sleep(2)
     system('lt -p ' + port + ' -s ' + name + ' --allow-invalid-cert --print-requests')
@@ -301,7 +301,7 @@ def localTunnel():
 def localhost():
     print(yellow + ' If prompt about RSA key, say yes' + green)
     sleep(2)
-    system('ssh -R 80:localhost:80 ssh.localhost.run')
+    system('ssh -R 8080:localhost:8080 ssh.localhost.run')
 
 
 
