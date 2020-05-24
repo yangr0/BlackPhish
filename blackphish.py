@@ -301,7 +301,7 @@ def localTunnel():
 def localhost():
     print(yellow + ' If prompt about RSA key, say yes' + green)
     sleep(2)
-    system('ssh -R 80:localhost:8080 ssh.localhost.run')
+    system('ssh -R 8080:localhost:8080 ssh.localhost.run')
 
 
 
