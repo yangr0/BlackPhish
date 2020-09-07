@@ -280,7 +280,7 @@ def setup(template): # Template for input #
 def ngrokForward():
     sleep(2)
     try:
-        system(f"cd {cwd} && ./ngrok http 8080")
+        system(f"cd {cwd} && ./ngrok http 80")
     except:
         print(red + "\n[!] Something went wrong! Please try again")
         endMessage()
