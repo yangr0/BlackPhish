@@ -147,7 +147,7 @@ def banner():
 
 
 def setup(template):  # Template for input #
-    system('type Windows\HOWTO.txt')
+
     print('\n')
     print(red + '           [1]' + blue + ' ngrok (More Options for windows Soon!)\n\n')
     choice1 = input(red + "        [" + blue + f"BlackPhish-{template}" + red + "] -> ")
@@ -160,7 +160,7 @@ def setup(template):  # Template for input #
         filelist = glob.glob(os.path.join(dir, "*"))
         for f in filelist:
             os.remove(f)
-    except PermissionError:
+    except:
         pass
 
     # Setup #
