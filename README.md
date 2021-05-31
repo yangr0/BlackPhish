@@ -110,7 +110,7 @@ Run the Installation File
 ./install.sh
 ```
 
-<<<<<<< HEAD
+
 Or to install on Windows
 ```bash
 https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe
@@ -120,8 +120,6 @@ https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip
 extract the zip and place the ngrok.exe in Windows dir
 ```
 
-=======
->>>>>>> parent of 1b2a96e (Fixs And Adds)
 # Usage
 
 ```bash
