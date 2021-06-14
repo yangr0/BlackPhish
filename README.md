@@ -110,6 +110,16 @@ Run the Installation File
 ./install.sh
 ```
 
+
+Or to install on Windows
+```bash
+https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe
+run the installer
+
+https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip
+extract the zip and place the ngrok.exe in Windows dir
+```
+
 # Usage
 
 ```bash
