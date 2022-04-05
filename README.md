@@ -146,7 +146,7 @@ Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for lett
 
 Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or Email: iinc0gnit0@pm.me if you want to contribute
 
-I am not actively working on this project anymore so any type of contribution would be greatly appreciated!
+I AM NOT WORKING ON THIS PROJECT ANYMORE SO IT WILL BE ARCHIEVED
 
 # Updates
 
