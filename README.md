@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
-<img src="https://github.com/iinc0gnit0/BlackPhish/blob/master/img/blackphish.png" align="middle" width="1000"></img>
+<img src="https://github.com/yangr0/BlackPhish/blob/master/img/blackphish.png" align="middle" width="1000"></img>
 
 <h1 align="center">
 
@@ -12,21 +12,21 @@
 
   <img src="https://img.shields.io/badge/version-3.8-brightgreen">
 
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/iinc0gnit0/BlackPhish">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/yangr0/BlackPhish">
 
 </p>
 
 <p align="center">
 
-  <img alt="GitHub followers" src="https://img.shields.io/github/followers/iinc0gnit0?style=social">
+  <img alt="GitHub followers" src="https://img.shields.io/github/followers/yangr0?style=social">
 
-  <img alt="GitHub stars" src="https://img.shields.io/github/stars/iinc0gnit0/BlackPhish?style=social">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/yangr0/BlackPhish?style=social">
 
 </p>
 
 <p align="center">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/iinc0gnit0/BLackPhish">
+  <img alt="GitHub" src="https://img.shields.io/github/license/yangr0/BLackPhish">
 
   <img src="https://img.shields.io/badge/language-python3-blue">
 
@@ -34,15 +34,15 @@
 
 <p align="center">
   
-  <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/iinc0gnit0/BlackPhish">
+  <img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/yangr0/BlackPhish">
   
-  <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/iinc0gnit0/BlackPhish">
+  <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/yangr0/BlackPhish">
   
 </p>
 
 <p align="center">
   
-  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/iinc0gnit0/BlackPhish">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/yangr0/BlackPhish">
   
 </p>
 
@@ -52,15 +52,9 @@ Super lightweight with many features and blazing fast speeds.
 
 <p>
 
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/iinc0gnit0/BlackPhish">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/yangr0/BlackPhish">
   
 </p>
-
-# in BETA
-
-This is still in BETA so you may see problems, please open an issue on GitHub and report them!
-
-Started October 31, 2019
 
 # Compatibility
 
@@ -95,7 +89,7 @@ sudo apt-get install git
 This will clone the repository
 
 ```bash
-git clone https://github.com/iinc0gnit0/BlackPhish
+git clone https://github.com/yangr0/BlackPhish
 ```
 
 Change into BlackPhish directory
@@ -115,9 +109,6 @@ Or to install on Windows
 ```bash
 https://www.apachefriends.org/xampp-files/8.0.6/xampp-windows-x64-8.0.6-0-VS16-installer.exe
 run the installer
-
-https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip
-extract the zip and place the ngrok.exe in Windows dir
 ```
 
 # Usage
@@ -132,22 +123,6 @@ sudo python3 blackphish.py
 ./update.sh
 ```
 
-# Credit
-
-Project Leader: [inc0gnit0](https://github.com/iinc0gnit0)
-
-Websites by: [TableFlipGod](https://instagram.com/tableflipgod_yt) | [DarkSecDevelopers](https://github.com/DarkSecDevelopers)
-
-Script by: [inc0gnit0](https://github.com/iinc0gnit0) | [retro0001](https://github.com/retro0001) | [pythonier5001](https://instagram.com/jackoftimeandreality)
-
-Big thanks to [DarkSecDevelopers](https://github.com/DarkSecDevelopers) for letting us use part of their tool
-
-# Contribution
-
-Message [inc0gnit0](https://instagram.com/inc0gnit0.offical) or Email: iinc0gnit0@pm.me if you want to contribute
-
-I AM NOT WORKING ON THIS PROJECT ANYMORE SO IT WILL BE ARCHIEVED
-
 # Updates
 
-## [CHANGELOG.md](https://github.com/iinc0gnit0/BlackPhish/blob/master/CHANGELOG.md)
+## [CHANGELOG.md](https://github.com/yangr0/BlackPhish/blob/master/CHANGELOG.md)
